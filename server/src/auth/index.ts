@@ -1,7 +1,15 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
-const JWT_SECRET = process.env.JWT_SECRET || "jackson-tax-service-jwt-secret-dev";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("JWT_SECRET environment variable is required in production!");
+  }
+  console.warn("⚠️  WARNING: Using dev JWT secret. Set JWT_SECRET in .env for production!");
+}
+
+const DEV_SECRET = "jackson-tax-service-jwt-secret-dev";
 
 export interface JwtPayload {
   userId: number;
@@ -10,13 +18,15 @@ export interface JwtPayload {
   name: string;
 }
 
+const getSecret = () => JWT_SECRET || DEV_SECRET;
+
 export function generateToken(payload: JwtPayload): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, getSecret(), { expiresIn: "7d" });
 }
 
 export function verifyToken(token: string): JwtPayload | null {
   try {
-    return jwt.verify(token, JWT_SECRET) as JwtPayload;
+    return jwt.verify(token, getSecret()) as JwtPayload;
   } catch {
     return null;
   }
