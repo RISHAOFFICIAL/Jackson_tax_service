@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { publicProcedure, router } from "../trpc/index.js";
-import { schema, getDb } from "../db/index.js";
+import { publicProcedure, router } from "../index.js";
+import { schema, getDb } from "../../db/index.js";
 import { eq, and } from "drizzle-orm";
 
 export const publicRouter = router({
@@ -97,7 +97,7 @@ export const publicRouter = router({
     )
     .mutation(async ({ input }) => {
       const db = getDb();
-      const { hashPassword } = await import("../auth/index.js");
+      const { hashPassword } = await import("../../auth/index.js");
       const hashedPassword = await hashPassword(input.password);
 
       // Check if user already exists
@@ -122,7 +122,7 @@ export const publicRouter = router({
         })
         .$returningId();
 
-      const { generateToken } = await import("../auth/index.js");
+      const { generateToken } = await import("../../auth/index.js");
       const token = generateToken({
         userId: result[0].id,
         email: input.email,
@@ -153,7 +153,7 @@ export const publicRouter = router({
     )
     .mutation(async ({ input }) => {
       const db = getDb();
-      const { comparePassword, generateToken } = await import("../auth/index.js");
+      const { comparePassword, generateToken } = await import("../../auth/index.js");
 
       const result = await db
         .select()

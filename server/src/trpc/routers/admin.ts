@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { adminProcedure, router } from "../trpc/index.js";
-import { schema, getDb } from "../db/index.js";
+import { adminProcedure, router } from "../index.js";
+import { schema, getDb } from "../../db/index.js";
 import { eq, desc, and, count } from "drizzle-orm";
 
 const videoInputSchema = z.object({

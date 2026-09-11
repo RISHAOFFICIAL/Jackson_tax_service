@@ -1,14 +1,17 @@
 import { initTRPC, TRPCError } from "@trpc/server";
-import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
+import { type CreateExpressContextOptions } from "@trpc/server/adapters/express";
 import { getDb } from "../db/index.js";
 import { verifyToken, extractTokenFromHeader, type JwtPayload } from "../auth/index.js";
 import type { inferAsyncReturnType } from "@trpc/server";
 
-export async function createContext(opts: FetchCreateContextFnOptions) {
+export function createContext(opts: CreateExpressContextOptions) {
   const db = getDb();
 
-  // Extract token from Authorization header
-  const token = extractTokenFromHeader(opts.req.headers.get("authorization") || undefined);
+  // Extract token from Authorization header (Express req.headers is a plain object)
+  const authHeader = Array.isArray(opts.req.headers.authorization)
+    ? opts.req.headers.authorization[0]
+    : opts.req.headers.authorization;
+  const token = extractTokenFromHeader(authHeader || undefined);
   let user: JwtPayload | null = null;
 
   if (token) {
@@ -19,7 +22,7 @@ export async function createContext(opts: FetchCreateContextFnOptions) {
     db,
     user,
     req: opts.req,
-    resHeaders: opts.resHeaders,
+    res: opts.res,
   };
 }
 
