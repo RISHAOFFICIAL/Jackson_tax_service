@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "workspaces": ["client", "server"],
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
-    "build": "npm run build -w server && npm run build -w client",
+    "build": "npm run build -w client",
     "start": "npm run start -w server",
     "db:push": "npm run db:push -w server",
     "db:generate": "npm run db:generate -w server",
@@ -20,8 +17,5 @@
   "devDependencies": {
     "concurrently": "^9.1.2",
     "typescript": "^5.7.3"
-  },
-  "dependencies": {
-    "express-rate-limit": "^8.5.2"
   }
 }
