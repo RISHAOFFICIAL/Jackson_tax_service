@@ -49,7 +49,7 @@ export const adminRouter = router({
       const db = getDb();
       await db
         .update(schema.users)
-        .set({ studentApprovalStatus: "approved" })
+        .set({ studentApprovalStatus: "approved" } as any)
         .where(eq(schema.users.id, input.userId));
       return { success: true };
     }),
@@ -61,7 +61,7 @@ export const adminRouter = router({
       const db = getDb();
       await db
         .update(schema.users)
-        .set({ studentApprovalStatus: "rejected" })
+        .set({ studentApprovalStatus: "rejected" } as any)
         .where(eq(schema.users.id, input.userId));
       return { success: true };
     }),
@@ -171,7 +171,7 @@ export const adminRouter = router({
       const db = getDb();
       const result = await db
         .insert(schema.videos)
-        .values(input)
+        .values(input as any)
         .$returningId();
       return { success: true, id: result[0].id };
     }),
@@ -183,7 +183,7 @@ export const adminRouter = router({
       const db = getDb();
       await db
         .update(schema.videos)
-        .set({ ...input.data, updatedAt: new Date() })
+        .set({ ...input.data, updatedAt: new Date() } as any)
         .where(eq(schema.videos.videoId, input.videoId));
       return { success: true };
     }),
@@ -224,7 +224,7 @@ export const adminRouter = router({
       const db = getDb();
       const result = await db
         .insert(schema.bundles)
-        .values(input)
+        .values(input as any)
         .$returningId();
       return { success: true, id: result[0].id };
     }),
@@ -255,7 +255,7 @@ export const adminRouter = router({
           bundleId: input.bundleId,
           questions: input.questions as any,
           passingScore: input.passingScore,
-        })
+        } as any)
         .$returningId();
       return { success: true, id: result[0].id };
     }),
@@ -327,7 +327,7 @@ export const adminRouter = router({
       const db = getDb();
       await db
         .update(schema.videoComments)
-        .set({ approved: true })
+        .set({ approved: true } as any)
         .where(eq(schema.videoComments.id, input.commentId));
       return { success: true };
     }),
@@ -361,7 +361,7 @@ export const adminRouter = router({
           bundleId: input.bundleId,
           bundleName: input.bundleName,
           certificateUrl: `/certificates/${input.userId}/${input.bundleId}`,
-        })
+        } as any)
         .$returningId();
 
       // Also mark bundle as completed
@@ -371,7 +371,7 @@ export const adminRouter = router({
           userId: input.userId,
           bundleId: input.bundleId,
           bundleName: input.bundleName,
-        });
+        } as any);
 
       return { success: true, id: result[0].id };
     }),
@@ -417,7 +417,7 @@ export const adminRouter = router({
       const db = getDb();
       await db
         .update(schema.services)
-        .set({ ...input.data, updatedAt: new Date() })
+        .set({ ...input.data, updatedAt: new Date() } as any)
         .where(eq(schema.services.id, input.id));
       return { success: true };
     }),
@@ -436,7 +436,7 @@ export const adminRouter = router({
       const db = getDb();
       await db
         .update(schema.faqs)
-        .set({ ...input.data, updatedAt: new Date() })
+        .set({ ...input.data, updatedAt: new Date() } as any)
         .where(eq(schema.faqs.id, input.id));
       return { success: true };
     }),
@@ -461,7 +461,7 @@ export const adminRouter = router({
           tags: input.tags as any,
           isPublished: true,
           publishedAt: new Date(),
-        })
+        } as any)
         .$returningId();
       return { success: true, id: result[0].id };
     }),

@@ -119,7 +119,7 @@ export const publicRouter = router({
           password: hashedPassword,
           role: "user",
           studentApprovalStatus: "pending",
-        })
+        } as any)
         .$returningId();
 
       const { generateToken } = await import("../../auth/index.js");
@@ -178,7 +178,7 @@ export const publicRouter = router({
       // Update last signed in
       await db
         .update(schema.users)
-        .set({ lastSignedIn: new Date() })
+        .set({ lastSignedIn: new Date() } as any)
         .where(eq(schema.users.id, user.id));
 
       const token = generateToken({

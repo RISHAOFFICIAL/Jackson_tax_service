@@ -103,7 +103,7 @@ export const protectedRouter = router({
           .set({
             completed: input.completed,
             lastWatchedAt: input.completed ? new Date() : undefined,
-          })
+          } as any)
           .where(eq(schema.videoProgress.id, existing[0].id));
       } else {
         await db.insert(schema.videoProgress).values({
@@ -113,7 +113,7 @@ export const protectedRouter = router({
           bundleId: video[0]?.bundleId || "",
           completed: input.completed,
           lastWatchedAt: input.completed ? new Date() : undefined,
-        });
+        } as any);
       }
 
       return { success: true };
@@ -200,7 +200,7 @@ export const protectedRouter = router({
           comment: input.comment,
           approved: false, // Needs admin approval
           parentCommentId: input.parentCommentId,
-        })
+        } as any)
         .$returningId();
 
       return {
@@ -340,7 +340,7 @@ export const protectedRouter = router({
           answers: input.answers as any,
           score,
           passed,
-        })
+        } as any)
         .$returningId();
 
       return {

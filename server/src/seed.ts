@@ -5,6 +5,9 @@ import { eq } from "drizzle-orm";
 async function seed() {
   await createDbConnection();
   const db = getDb();
+  // NOTE: drizzle-orm 0.38.4 has a type-inference bug where optional columns are
+  // missing from the insert model. The `as any` casts on `.values()` below work
+  // around that — all column names are valid (see schema.ts); no runtime change.
   console.log("Seeding database...");
 
   // Seed admin user
@@ -23,7 +26,7 @@ async function seed() {
       password: hashedPw,
       role: "admin",
       studentApprovalStatus: "approved",
-    });
+    } as any);
     console.log("Admin user created");
   }
 
@@ -43,7 +46,7 @@ async function seed() {
       password: hashedPw,
       role: "user",
       studentApprovalStatus: "approved",
-    });
+    } as any);
     console.log("Sample student user created (student@example.com / Student@123)");
   }
 
@@ -86,7 +89,7 @@ async function seed() {
       orderIndex: 4,
       isActive: true,
     },
-  ]);
+  ] as any);
   console.log("✅ Services seeded");
 
   // ========== SEED FAQs ==========
@@ -162,7 +165,7 @@ async function seed() {
       orderIndex: 10,
       isActive: true,
     },
-  ]);
+  ] as any);
   console.log("✅ FAQs seeded");
 
   // ========== SEED TESTIMONIALS ==========
@@ -210,7 +213,7 @@ async function seed() {
       rating: 5,
       isActive: true,
     },
-  ]);
+  ] as any);
   console.log("✅ Testimonials seeded");
 
   // ========== SEED BUNDLES ==========
@@ -237,7 +240,7 @@ async function seed() {
       thumbnailUrl: "",
       orderIndex: 3,
     },
-  ]);
+  ] as any);
   console.log("✅ Bundles seeded");
 
   // ========== SEED VIDEOS ==========
@@ -424,7 +427,7 @@ async function seed() {
       orderIndex: 4,
       isPublic: true,
     },
-  ]);
+  ] as any);
   console.log("✅ Videos seeded (16 total across 3 bundles)");
 
   // ========== SEED SAMPLE QUIZZES ==========
@@ -506,7 +509,7 @@ async function seed() {
         },
       ]),
     },
-  ]);
+  ] as any);
   console.log("✅ Quizzes seeded");
 
   // ========== SEED BLOG POSTS ==========
@@ -701,7 +704,7 @@ Ready to get your books in order? Contact us at 313-427-4856 or schedule a consu
       isPublished: true,
       publishedAt: new Date("2025-05-01"),
     },
-  ]);
+  ] as any);
   console.log("✅ Blog posts seeded (6 total)");
 
   console.log("✅ Database seeded successfully!");
