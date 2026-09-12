@@ -84,8 +84,13 @@ async function main() {
   app.use(
     "/api/trpc",
     (req, res, next) => {
-      const isAuthRoute = req.body?.procedure?.path === "public.login" || 
-                          req.body?.procedure?.path === "public.register";
+      // tRPC v11 exposes the procedure path in the URL (e.g.
+      // /api/trpc/public.login), not in the request body. Batch requests
+      // arrive as comma-separated paths (e.g. public.login,public.register).
+      const path = (req.path || "").slice((req.path || "").lastIndexOf("/") + 1);
+      const isAuthRoute = path
+        .split(",")
+        .some((p) => p === "public.login" || p === "public.register");
       if (isAuthRoute) {
         return authLimiter(req, res, next);
       }
