@@ -179,7 +179,7 @@ export default function Header() {
                 </Button>
               </a>
               <a
-                href="https://kskfyeugzjwrzaxvq4om.app.clientclub.net/"
+                href="https://kinlock.cloudtaxoffice.com/proavalon/CoreLink/Index?ReturnUrl=%2fproavalon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
