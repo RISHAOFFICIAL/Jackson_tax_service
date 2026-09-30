@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import {
   FileText, Building2, BookOpen, Zap, Star, Shield, Clock, CalendarCheck,
   CheckCircle, ChevronRight, ArrowRight, Phone, Calendar, Upload,
+  GraduationCap, Award,
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Card, CardContent } from "../components/ui/Card";
@@ -211,6 +212,63 @@ export default function Home() {
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Join My Team Section */}
+      <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Want to Join My Team?
+              </h2>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                Looking to build a career in tax preparation? Learn the tax business from the ground up with hands-on, real-world training from Austin Jackson — with year-round support and a clear path to certification.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { icon: GraduationCap, text: "Hands-on training from Austin Jackson" },
+                  { icon: CalendarCheck, text: "Year-round training, not just tax season" },
+                  { icon: Award, text: "Earn completion certificates through the student portal" },
+                ].map((item) => (
+                  <li key={item.text} className="flex items-start">
+                    <span className="w-10 h-10 bg-gold/15 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-gold" />
+                    </span>
+                    <span className="text-gray-200 text-lg">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="lg:pl-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <h3 className="text-2xl font-bold text-white mb-3">Ready to learn?</h3>
+                <p className="text-gray-300 mb-6">
+                  Create a student portal account to start training today.
+                </p>
+                <div className="space-y-4">
+                  <Link href="/login" className="block">
+                    <Button variant="gold" size="lg" className="w-full">
+                      <GraduationCap className="w-5 h-5 mr-2" />
+                      Join the Student Portal
+                    </Button>
+                  </Link>
+                  <Link href="/contact" className="block">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full border-white/30 text-white hover:bg-white hover:text-primary"
+                    >
+                      <Phone className="w-5 h-5 mr-2" />
+                      Contact Austin
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
