@@ -132,7 +132,7 @@ async function seed() {
     },
     {
       question: "How do I upload my tax documents?",
-      answer: "You can upload your documents securely through our client portal at https://kskfyeugzjwrzaxvq4om.app.clientclub.net/. Simply click the 'Upload Documents' button on our website and follow the instructions. The portal is encrypted and secure — your sensitive financial information is always protected.",
+      answer: "You can upload your documents securely through our client portal at https://kinlock.cloudtaxoffice.com/. Simply click the 'Upload Documents' button on our website and follow the instructions. The portal is encrypted and secure — your sensitive financial information is always protected.",
       category: "general",
       orderIndex: 6,
       isActive: true,

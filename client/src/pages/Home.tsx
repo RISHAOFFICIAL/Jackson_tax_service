@@ -126,7 +126,7 @@ export default function Home() {
                     Schedule a Consultation
                   </Button>
                 </a>
-                <a href="https://kskfyeugzjwrzaxvq4om.app.clientclub.net/" target="_blank" rel="noopener noreferrer">
+                <a href="https://kinlock.cloudtaxoffice.com/" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-primary">
                     <Upload className="w-5 h-5 mr-2" />
                     Upload Documents
