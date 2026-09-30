@@ -120,7 +120,7 @@ export default function Footer() {
                 className="flex items-center space-x-2 bg-white/10 text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 transition w-full justify-center"
               >
                 <Upload className="w-4 h-4" />
-                <span>Upload Documents</span>
+                <span>Client Portal</span>
               </a>
             </div>
           </div>

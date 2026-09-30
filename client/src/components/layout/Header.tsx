@@ -186,7 +186,7 @@ export default function Header() {
               >
                 <Button variant="outline" className="w-full">
                   <Upload className="w-4 h-4 mr-2" />
-                  Upload Documents
+                  Client Portal
                 </Button>
               </a>
             </div>

@@ -170,7 +170,7 @@ export default function Contact() {
                   >
                     <Button variant="outline" size="lg" className="w-full">
                       <Upload className="w-5 h-5 mr-2" />
-                      Upload Tax Documents
+                      Client Portal
                     </Button>
                   </a>
                 </CardContent>
