@@ -82,7 +82,7 @@ const faqItems = [
   },
   {
     question: "How do I upload my tax documents?",
-    answer: "You can upload your documents securely through our client portal. Simply click the 'Upload Documents' button on our website and follow the instructions.",
+    answer: "You can upload your documents securely through our client portal. Simply click the 'Client Portal' button on our website and follow the instructions.",
   },
 ];
 
@@ -129,7 +129,7 @@ export default function Home() {
                 <a href="https://kinlock.cloudtaxoffice.com/proavalon/CoreLink/Index?ReturnUrl=%2fproavalon" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-primary">
                     <Upload className="w-5 h-5 mr-2" />
-                    Upload Documents
+                    Client Portal
                   </Button>
                 </a>
               </div>
