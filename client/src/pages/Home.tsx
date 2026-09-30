@@ -12,24 +12,28 @@ const services = [
   {
     title: "Individual Tax Returns",
     description: "W-2 employees & 1099 contractors. Maximize your refund with expert filing.",
+    price: "Starting at $150",
     icon: FileText,
     features: ["W-2 & 1099 Filing", "Self-Employment", "Deduction Optimization"],
   },
   {
     title: "Business Taxes",
     description: "LLCs, corporations & partnerships. Keep your business compliant.",
+    price: "Starting at $350",
     icon: Building2,
     features: ["LLC & Corporate Filing", "Quarterly Estimates", "Business Deductions"],
   },
   {
     title: "Year-Round Bookkeeping",
     description: "Professional bookkeeping to keep your finances organized all year.",
+    price: "Starting at $200/month",
     icon: BookOpen,
     features: ["Monthly Reconciliation", "Expense Tracking", "Financial Reports"],
   },
   {
     title: "Rapid Refunds",
     description: "Up to $7,000 advanced the same day your return is accepted.",
+    price: "Up to $7,000 advance",
     icon: Zap,
     features: ["Same-Day Processing", "Up to $7,000 Advance", "Direct Deposit"],
   },
@@ -109,12 +113,26 @@ export default function Home() {
                 in Ferndale, Michigan. Let us help you maximize your refund and stay compliant.
               </p>
 
+              {/* Social proof — 5 stars anchored to the 3 existing 5-star client testimonials.
+                  Owner will supply the real Google rating/review count later.
+                  PLACEHOLDER: {{GOOGLE_RATING_COUNT}} — e.g. "4.9 ({{GOOGLE_RATING_COUNT}} reviews on Google)". */}
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="flex" aria-label="Rated 5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-gold fill-current" />
+                  ))}
+                </div>
+                <span className="text-gray-300 text-sm font-medium">
+                  Five-star reviews from our clients
+                </span>
+              </div>
+
               {/* Trust Signals */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
                 {trustSignals.map((signal) => (
-                  <div key={signal.text} className="flex items-center space-x-2 text-gray-300">
+                  <div key={signal.text} className="flex items-center space-x-2 text-gray-200 bg-white/5 rounded-lg px-3 py-2">
                     <signal.icon className="w-5 h-5 text-gold flex-shrink-0" />
-                    <span className="text-sm">{signal.text}</span>
+                    <span className="text-sm font-medium">{signal.text}</span>
                   </div>
                 ))}
               </div>
@@ -175,6 +193,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Our Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
               Our Services
             </h2>
@@ -191,7 +210,8 @@ export default function Home() {
                     <service.icon className="w-7 h-7 text-gold" />
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                  <p className="text-gray-600 text-sm mb-3">{service.description}</p>
+                  <p className="text-gold font-semibold text-base mb-4">{service.price}</p>
                   <ul className="space-y-2">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center text-sm text-gray-500">
@@ -216,11 +236,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works */}
+      <section className="py-20 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">How It Works</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+              Getting Your Taxes Done Is Simple
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Three easy steps to get your return prepared and your refund on the way
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Upload Your Documents",
+                description: "Securely upload your documents through the Client Portal.",
+              },
+              {
+                step: "2",
+                title: "Austin Prepares Your Return",
+                description: "Austin reviews your documents and prepares your return.",
+              },
+              {
+                step: "3",
+                title: "Get Your Refund Fast",
+                description: "Get your refund fast — up to $7,000 advanced with Rapid Refund.",
+              },
+            ].map((item) => (
+              <Card key={item.step} className="text-center">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-gold font-bold text-xl">{item.step}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Join My Team Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Join My Team</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Want to Join My Team?
               </h2>
@@ -277,6 +343,7 @@ export default function Home() {
       <section className="py-20 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Trust Matters</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
               What Our Clients Say
             </h2>
@@ -337,10 +404,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Website Showcase */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-primary via-primary-light to-primary rounded-3xl p-8 sm:p-12 lg:p-16">
+            <div className="max-w-3xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Built by Austin Jackson
+              </h2>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                This website — booking, document uploads, the student portal, and everything you see here — was designed and built by Austin Jackson. If you want a website that works this hard for your business, let's build yours.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact" className="block">
+                  <Button variant="gold" size="lg">
+                    Get a Website Like This
+                  </Button>
+                </Link>
+                <Link href="/contact" className="block">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/30 text-white hover:bg-white hover:text-primary"
+                  >
+                    See What I Do
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Got Questions?</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
               Frequently Asked Questions
             </h2>
