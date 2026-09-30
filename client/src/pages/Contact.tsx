@@ -163,7 +163,7 @@ export default function Contact() {
                     </Button>
                   </a>
                   <a
-                    href="https://kinlock.cloudtaxoffice.com/"
+                    href="https://kinlock.cloudtaxoffice.com/proavalon/CoreLink/Index?ReturnUrl=%2fproavalon"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
