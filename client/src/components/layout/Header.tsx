@@ -50,6 +50,26 @@ export default function Header() {
               </Link>
             ))}
 
+            {/* Persistent CTAs */}
+            <div className="flex items-center gap-2 ml-3">
+              <a
+                href="https://calendly.com/ajackstaxservice"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="gold" size="sm">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Schedule Appointment
+                </Button>
+              </a>
+              <a href="tel:313-427-4856">
+                <Button variant="outline" size="sm">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call 313-427-4856
+                </Button>
+              </a>
+            </div>
+
             {/* Auth links */}
             {isAuthenticated ? (
               <div className="flex items-center space-x-2 ml-4">
