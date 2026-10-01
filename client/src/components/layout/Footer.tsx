@@ -132,7 +132,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <p className="text-center text-gray-500 text-xs mb-4">
             <Link href="/contact" className="hover:text-gold transition">
-              Website designed &amp; built by Jackson Tax Service
+              Powered By: Lexis Sapphire LLC
             </Link>
           </p>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

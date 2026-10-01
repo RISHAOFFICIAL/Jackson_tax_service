@@ -404,38 +404,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Website Showcase */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-primary via-primary-light to-primary rounded-3xl p-8 sm:p-12 lg:p-16">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Built by Austin Jackson
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                This website — booking, document uploads, the student portal, and everything you see here — was designed and built by Austin Jackson. If you want a website that works this hard for your business, let's build yours.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="block">
-                  <Button variant="gold" size="lg">
-                    Get a Website Like This
-                  </Button>
-                </Link>
-                <Link href="/contact" className="block">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-white/30 text-white hover:bg-white hover:text-primary"
-                  >
-                    See What I Do
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
