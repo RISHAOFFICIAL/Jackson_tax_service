@@ -1,12 +1,15 @@
 import { Link } from "wouter";
 import {
   FileText, Building2, BookOpen, Zap, Star, Shield, Clock, CalendarCheck,
-  CheckCircle, ChevronRight, ArrowRight, Phone, Calendar, Upload,
+  CheckCircle, ChevronRight, Phone, Calendar, Upload,
   GraduationCap, Award,
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Card, CardContent } from "../components/ui/Card";
 import { Accordion } from "../components/ui/Accordion";
+import { Reveal } from "../components/ui/Reveal";
+import { SectionHeading } from "../components/ui/SectionHeading";
+import { Swash } from "../components/ui/Swash";
 
 const services = [
   {
@@ -95,21 +98,44 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
+      <section className="relative bg-primary overflow-hidden">
+        {/* Layered designed background */}
+        <div className="absolute inset-0 bg-[radial-gradient(130%_130%_at_85%_-10%,#2a3f6a_0%,#1a2a4a_45%,#0f1d38_100%)]" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-[0.07]" />
+        <div className="absolute -top-32 -right-24 h-[36rem] w-[36rem] rounded-full bg-gold/10 blur-[110px]" />
+        <div className="absolute -bottom-44 -left-32 h-[32rem] w-[32rem] rounded-full bg-gold/5 blur-[100px]" />
+
+        {/* Concentric "seal" rings — recurring trust motif */}
+        <div className="pointer-events-none absolute right-[-10%] top-1/2 hidden -translate-y-1/2 lg:block">
+          <svg viewBox="0 0 500 500" className="h-[620px] w-[620px] text-gold/15" aria-hidden="true">
+            <circle cx="250" cy="250" r="245" stroke="currentColor" strokeWidth="1" fill="none" />
+            <circle cx="250" cy="250" r="200" stroke="currentColor" strokeWidth="1" fill="none" />
+            <circle cx="250" cy="250" r="155" stroke="currentColor" strokeWidth="1" fill="none" />
+            <circle cx="250" cy="250" r="110" stroke="currentColor" strokeWidth="1" fill="none" />
+            <circle cx="250" cy="250" r="65" stroke="currentColor" strokeWidth="1" fill="none" />
+            <circle cx="250" cy="5" r="4" fill="currentColor" />
+            <circle cx="495" cy="250" r="4" fill="currentColor" />
+            <circle cx="250" cy="495" r="4" fill="currentColor" />
+            <circle cx="5" cy="250" r="4" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="animate-hero">
+              <div className="inline-flex items-center bg-gold/15 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-gold/25">
                 <Shield className="w-4 h-4 mr-2" />
                 BBB Accredited Business
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-6">
                 Expert Tax Preparation,{" "}
-                <span className="text-gold">Year-Round Support</span>
+                <span className="relative inline-block text-gold">
+                  Year-Round Support
+                  <Swash className="absolute -bottom-4 left-0 h-3.5 w-32" />
+                </span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
-                Professional tax preparation and bookkeeping services for individuals and businesses 
+                Professional tax preparation and bookkeeping services for individuals and businesses
                 in Ferndale, Michigan. Let us help you maximize your refund and stay compliant.
               </p>
 
@@ -130,7 +156,7 @@ export default function Home() {
               {/* Trust Signals */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
                 {trustSignals.map((signal) => (
-                  <div key={signal.text} className="flex items-center space-x-2 text-gray-200 bg-white/5 rounded-lg px-3 py-2">
+                  <div key={signal.text} className="flex items-center space-x-2 text-gray-200 bg-white/5 border border-white/10 rounded-lg px-3 py-2">
                     <signal.icon className="w-5 h-5 text-gold flex-shrink-0" />
                     <span className="text-sm font-medium">{signal.text}</span>
                   </div>
@@ -154,11 +180,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero Image / CTA Card */}
-            <div className="hidden lg:block">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            {/* Hero CTA Card */}
+            <div className="hidden lg:block animate-hero" style={{ animationDelay: "140ms" }}>
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <span className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
                 <div className="text-center mb-6">
-                  <Phone className="w-12 h-12 text-gold mx-auto mb-4" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/15 border border-gold/25 mb-5">
+                    <Phone className="w-8 h-8 text-gold" />
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-2">Ready to Get Started?</h3>
                   <p className="text-gray-300">Call us or book online today</p>
                 </div>
@@ -172,7 +201,7 @@ export default function Home() {
                   href="https://calendly.com/ajackstaxservice"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full bg-gold text-primary text-center font-semibold py-4 rounded-xl hover:bg-gold-light transition"
+                  className="block w-full bg-gold text-primary text-center font-semibold py-4 rounded-xl hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-lg transition-all"
                 >
                   Book Free Consultation
                 </a>
@@ -192,62 +221,61 @@ export default function Home() {
       {/* Services Overview */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Our Services</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-              Our Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive tax and financial services tailored to your needs
-            </p>
-          </div>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Our Services"
+              title="Our Services"
+              subtitle="Comprehensive tax and financial services tailored to your needs"
+            />
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <Card key={service.title} className="group hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
-                    <service.icon className="w-7 h-7 text-gold" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{service.description}</p>
-                  <p className="text-gold font-semibold text-base mb-4">{service.price}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-gray-500">
-                        <CheckCircle className="w-4 h-4 text-gold mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+            {services.map((service, i) => (
+              <Reveal key={service.title} delay={i * 90} className="h-full">
+                <Card className="group relative h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold to-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+                  <CardContent className="p-6">
+                    <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                      <service.icon className="w-7 h-7 text-gold" />
+                    </div>
+                    <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
+                    <p className="text-gray-600 text-sm mb-3">{service.description}</p>
+                    <p className="text-gold font-semibold text-base mb-4">{service.price}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center text-sm text-gray-500">
+                          <CheckCircle className="w-4 h-4 text-gold mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <Reveal className="text-center mt-12">
             <Link href="/services">
               <Button variant="primary" size="lg">
                 View All Services
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* How It Works */}
       <section className="py-20 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">How It Works</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-              Getting Your Taxes Done Is Simple
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Three easy steps to get your return prepared and your refund on the way
-            </p>
-          </div>
+          <Reveal>
+            <SectionHeading
+              eyebrow="How It Works"
+              title="Getting Your Taxes Done Is Simple"
+              subtitle="Three easy steps to get your return prepared and your refund on the way"
+            />
+          </Reveal>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -266,16 +294,18 @@ export default function Home() {
                 title: "Get Your Refund Fast",
                 description: "Get your refund fast — up to $7,000 advanced with Rapid Refund.",
               },
-            ].map((item) => (
-              <Card key={item.step} className="text-center">
-                <CardContent className="p-8">
-                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-gold font-bold text-xl">{item.step}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
-                </CardContent>
-              </Card>
+            ].map((item, i) => (
+              <Reveal key={item.step} delay={i * 100} className="h-full">
+                <Card className="text-center h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <CardContent className="p-8">
+                    <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-gold font-bold text-xl font-display">{item.step}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
+                    <p className="text-gray-600 text-sm">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -285,14 +315,15 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Join My Team</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Want to Join My Team?
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Looking to build a career in tax preparation? Learn the tax business from the ground up with hands-on, real-world training from Austin Jackson — with year-round support and a clear path to certification.
-              </p>
+            <Reveal>
+              <SectionHeading
+                align="left"
+                light
+                eyebrow="Join My Team"
+                title="Want to Join My Team?"
+                subtitle="Looking to build a career in tax preparation? Learn the tax business from the ground up with hands-on, real-world training from Austin Jackson — with year-round support and a clear path to certification."
+                className="mb-6"
+              />
               <ul className="space-y-4">
                 {[
                   { icon: GraduationCap, text: "Hands-on training from Austin Jackson" },
@@ -307,9 +338,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="lg:pl-8">
+            <Reveal delay={120} className="lg:pl-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold text-white mb-3">Ready to learn?</h3>
                 <p className="text-gray-300 mb-6">
@@ -334,7 +365,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -342,107 +373,112 @@ export default function Home() {
       {/* Google Business Profile Embed */}
       <section className="py-20 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Trust Matters</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg text-gray-600">
-              Check out our reviews on Google
-            </p>
-          </div>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Trust Matters"
+              title="What Our Clients Say"
+              subtitle="Check out our reviews on Google"
+            />
+          </Reveal>
 
           <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {testimonials.map((t) => (
-              <Card key={t.name}>
-                <CardContent className="p-6">
-                  <div className="flex mb-3">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-gold fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">"{t.content}"</p>
-                  <p className="font-semibold text-primary">- {t.name}</p>
-                </CardContent>
-              </Card>
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={i * 100} className="h-full">
+                <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex mb-3">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-gold fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">"{t.content}"</p>
+                    <p className="font-semibold text-primary">- {t.name}</p>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
 
           {/* Google Map and Reviews Embed */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="p-4 bg-gray-50 border-b border-gray-100">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">G</span>
+          <Reveal>
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-4 bg-gray-50 border-b border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">G</span>
+                    </div>
+                    <span className="font-semibold text-gray-700">Google Business Profile</span>
                   </div>
-                  <span className="font-semibold text-gray-700">Google Business Profile</span>
+                  <a
+                    href="https://www.google.com/maps/place/1938+Burdette,+Ferndale,+MI+48220"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:underline"
+                  >
+                    View all reviews →
+                  </a>
                 </div>
-                <a
-                  href="https://www.google.com/maps/place/1938+Burdette,+Ferndale,+MI+48220"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:underline"
-                >
-                  View all reviews →
-                </a>
+              </div>
+              <div className="aspect-video w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2940.5!2d-83.1342!3d42.4609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824c4b5a5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2s1938+Burdette%2C+Ferndale%2C+MI+48220!5e0!3m2!1sen!2sus!4v1"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "300px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Jackson Tax Service Location"
+                />
               </div>
             </div>
-            <div className="aspect-video w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2940.5!2d-83.1342!3d42.4609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824c4b5a5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2s1938+Burdette%2C+Ferndale%2C+MI+48220!5e0!3m2!1sen!2sus!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "300px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Jackson Tax Service Location"
-              />
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold mb-3">Got Questions?</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-gray-600">
-              Everything you need to know about our tax services
-            </p>
-          </div>
-          <Accordion items={faqItems} />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Got Questions?"
+              title="Frequently Asked Questions"
+              subtitle="Everything you need to know about our tax services"
+            />
+          </Reveal>
+          <Reveal delay={80}>
+            <Accordion items={faqItems} />
+          </Reveal>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-primary-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Schedule your free consultation today and let us help you achieve your financial goals.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://calendly.com/ajackstaxservice" target="_blank" rel="noopener noreferrer">
-              <Button variant="gold" size="lg">
-                <Calendar className="w-5 h-5 mr-2" />
-                Book Appointment
-              </Button>
-            </a>
-            <a href="tel:313-427-4856">
-              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-primary">
-                <Phone className="w-5 h-5 mr-2" />
-                Call 313-427-4856
-              </Button>
-            </a>
-          </div>
+          <Reveal>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              Ready to Get Started?
+            </h2>
+            <Swash className="h-3.5 w-32 mx-auto mb-6" />
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Schedule your free consultation today and let us help you achieve your financial goals.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="https://calendly.com/ajackstaxservice" target="_blank" rel="noopener noreferrer">
+                <Button variant="gold" size="lg">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book Appointment
+                </Button>
+              </a>
+              <a href="tel:313-427-4856">
+                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-primary">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call 313-427-4856
+                </Button>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

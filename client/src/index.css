@@ -3,12 +3,40 @@
 @theme {
   --color-primary: #1a2a4a;
   --color-primary-light: #2a3f6a;
+  --color-primary-deep: #0f1d38;
   --color-gold: #c9a84c;
   --color-gold-light: #d4b96a;
   --color-gold-dark: #a88a2e;
   --color-accent: #e8b84b;
   --color-surface: #f8f6f0;
   --color-muted: #6b7280;
+
+  /* Distinctive typography pairing: Fraunces (display serif) + Inter (body sans) */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Custom scrollbar */
@@ -23,15 +51,78 @@
   border-radius: 4px;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Gradient text utility */
 .gradient-gold {
   background: linear-gradient(135deg, #c9a84c, #e8b84b);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Motion & interaction ---------- */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-hero {
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-float {
+  animation: float-slow 9s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 48s linear infinite;
+}
+
+/* Scroll-reveal (driven by the <Reveal /> component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Honor reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .animate-hero,
+  .animate-float,
+  .animate-spin-slow {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
