@@ -25,11 +25,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-gold font-bold text-lg">JT</span>
+              <span className="text-gold font-bold text-lg font-display">JT</span>
             </div>
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-primary">Jackson Tax</span>
-              <span className="text-xl font-bold text-gold"> Service</span>
+              <span className="text-xl font-bold text-primary font-display">Jackson Tax</span>
+              <span className="text-xl font-bold text-gold font-display"> Service</span>
             </div>
           </Link>
 

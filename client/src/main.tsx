@@ -5,6 +5,8 @@ import { Router } from "wouter";
 import { AuthProvider } from "./lib/auth";
 import { queryClient, trpc, getTrpcClient } from "./lib/trpc-client";
 import App from "./App";
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
 import "./index.css";
 
 function TRPCProvider({ children }: { children: React.ReactNode }) {

@@ -12,11 +12,11 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gold rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">JT</span>
+                <span className="text-primary font-bold text-lg font-display">JT</span>
               </div>
               <div>
-                <span className="text-lg font-bold text-white">Jackson Tax</span>
-                <span className="text-lg font-bold text-gold"> Service</span>
+                <span className="text-lg font-bold text-white font-display">Jackson Tax</span>
+                <span className="text-lg font-bold text-gold font-display"> Service</span>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
