@@ -3,7 +3,15 @@ import { CheckCircle, ArrowRight, FileText, Building2, BookOpen, Zap, Calendar }
 import { Button } from "../components/ui/Button";
 import { Card, CardContent } from "../components/ui/Card";
 
-const servicesDetail = [
+const servicesDetail: {
+  title: string;
+  icon: typeof FileText;
+  description: string;
+  price: string;
+  details: string[];
+  link?: string;
+  linkLabel?: string;
+}[] = [
   {
     title: "Individual Tax Returns",
     icon: FileText,
@@ -35,19 +43,22 @@ const servicesDetail = [
     ],
   },
   {
-    title: "Year-Round Bookkeeping",
+    title: "Monthly Bookkeeping, by Lexis Sapphire Financial",
     icon: BookOpen,
-    description: "Professional bookkeeping services to keep your finances organized throughout the year. We provide clean, tax-ready books at any time.",
-    price: "Starting at $200/month",
+    description:
+      "Monthly bookkeeping from our partner, Lexis Sapphire Financial. Clean books every month, so you always know what you made, and tax time is a folder, not a shoebox.",
+    price: "From $299/month",
     details: [
       "Monthly Reconciliation - Bank and credit card reconciliation",
       "Expense Tracking - Categorize and monitor business expenses",
       "Financial Reports - P&L statements, balance sheets, cash flow",
-      "Accounts Receivable/Payable - Track what's owed and what's due",
-      "Payroll Support - Process payroll and tax withholdings",
+      "Receipt Management - Receipts captured, categorized, and organized",
+      "Invoice Reminders - Automatic reminders so you get paid on time",
       "Tax-Ready Records - Organized books for tax season",
       "QuickBooks Integration - Support for popular accounting software",
     ],
+    link: "/bookkeeping",
+    linkLabel: "See bookkeeping plans",
   },
   {
     title: "Rapid Refunds",
@@ -118,6 +129,14 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                {service.link && (
+                  <Link href={service.link} className="mr-3 inline-block mb-3 sm:mb-0">
+                    <Button variant="gold" size="lg">
+                      {service.linkLabel}
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
+                )}
                 <a href="https://calendly.com/ajackstaxservice" target="_blank" rel="noopener noreferrer">
                   <Button variant="gold" size="lg">
                     <Calendar className="w-5 h-5 mr-2" />
@@ -140,6 +159,29 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Bookkeeping partner banner */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-primary rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Need monthly bookkeeping?
+              </h3>
+              <p className="text-gray-300">
+                Monthly bookkeeping plans from our partner, Lexis Sapphire
+                Financial, starting at $299/month.
+              </p>
+            </div>
+            <Link href="/bookkeeping" className="flex-shrink-0">
+              <Button variant="gold" size="lg">
+                See bookkeeping plans
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
