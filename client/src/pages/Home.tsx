@@ -11,7 +11,15 @@ import { Reveal } from "../components/ui/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Swash } from "../components/ui/Swash";
 
-const services = [
+const services: {
+  title: string;
+  description: string;
+  price: string;
+  icon: typeof FileText;
+  features: string[];
+  link?: string;
+  linkLabel?: string;
+}[] = [
   {
     title: "Individual Tax Returns",
     description: "W-2 employees & 1099 contractors. Maximize your refund with expert filing.",
@@ -27,11 +35,14 @@ const services = [
     features: ["LLC & Corporate Filing", "Quarterly Estimates", "Business Deductions"],
   },
   {
-    title: "Year-Round Bookkeeping",
-    description: "Professional bookkeeping to keep your finances organized all year.",
-    price: "Starting at $200/month",
+    title: "Monthly Bookkeeping",
+    description:
+      "Monthly bookkeeping by our partner, Lexis Sapphire Financial. Clean books, every month.",
+    price: "From $299/month",
     icon: BookOpen,
     features: ["Monthly Reconciliation", "Expense Tracking", "Financial Reports"],
+    link: "/bookkeeping",
+    linkLabel: "See bookkeeping plans",
   },
   {
     title: "Rapid Refunds",
@@ -249,6 +260,15 @@ export default function Home() {
                         </li>
                       ))}
                     </ul>
+                    {service.link && (
+                      <Link
+                        href={service.link}
+                        className="inline-flex items-center text-sm font-semibold text-gold hover:text-gold-dark transition mt-4"
+                      >
+                        {service.linkLabel}
+                        <ChevronRight className="w-4 h-4 ml-1" />
+                      </Link>
+                    )}
                   </CardContent>
                 </Card>
               </Reveal>

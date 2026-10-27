@@ -43,6 +43,7 @@ export default function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "Services", href: "/services" },
+                { label: "Bookkeeping", href: "/bookkeeping" },
                 { label: "About Austin", href: "/about" },
                 { label: "Resources", href: "/resources" },
                 { label: "Contact Us", href: "/contact" },
@@ -64,14 +65,14 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-gold">Services</h3>
             <ul className="space-y-3">
               {[
-                "Individual Tax Returns",
-                "Business Taxes",
-                "Year-Round Bookkeeping",
-                "Rapid Refunds",
+                { label: "Individual Tax Returns", href: "/services" },
+                { label: "Business Taxes", href: "/services" },
+                { label: "Monthly Bookkeeping", href: "/bookkeeping" },
+                { label: "Rapid Refunds", href: "/services" },
               ].map((service) => (
-                <li key={service}>
-                  <Link href="/services" className="text-gray-300 hover:text-gold transition text-sm">
-                    {service}
+                <li key={service.label}>
+                  <Link href={service.href} className="text-gray-300 hover:text-gold transition text-sm">
+                    {service.label}
                   </Link>
                 </li>
               ))}
