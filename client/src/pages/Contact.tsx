@@ -27,8 +27,11 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // In production, this would send to the backend API
-    console.log("Contact form data:", data);
+    const subject = `Website contact from ${data.name}`;
+    const body = `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\n\nMessage:\n${data.message}`;
+    window.location.href = `mailto:ajackstaxservice@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -54,16 +57,30 @@ export default function Contact() {
               <h2 className="text-3xl font-bold text-primary mb-6">
                 Send Us a Message
               </h2>
+              <p className="text-gray-600 mb-4">
+                Have a question? Fill out the form below. Your email app will open
+                with your message addressed to us, ready for you to send.
+              </p>
               <p className="text-gray-600 mb-8">
-                Have a question? Fill out the form below and we'll get back to you within 24 hours.
+                Prefer to talk? Call us at{" "}
+                <a href="tel:313-427-4856" className="text-gold font-semibold hover:text-gold-dark transition">
+                  313-427-4856
+                </a>
+                .
               </p>
 
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-green-700 mb-2">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold text-green-700 mb-2">Almost Done</h3>
                   <p className="text-green-600">
-                    Thank you for reaching out! We'll respond to your inquiry within 24 hours.
+                    Your email app should now be open with your message addressed to
+                    ajackstaxservice@gmail.com. Just press send and we will take it from there.
+                    Prefer to talk instead? Call us at{" "}
+                    <a href="tel:313-427-4856" className="font-semibold underline">
+                      313-427-4856
+                    </a>
+                    .
                   </p>
                 </div>
               ) : (
@@ -96,7 +113,7 @@ export default function Contact() {
                   />
                   <Button type="submit" variant="gold" size="lg" className="w-full" disabled={isSubmitting}>
                     <Send className="w-5 h-5 mr-2" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Opening..." : "Send via Email"}
                   </Button>
                 </form>
               )}

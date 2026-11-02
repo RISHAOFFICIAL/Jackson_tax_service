@@ -68,6 +68,16 @@ export default function Header() {
                   Call 313-427-4856
                 </Button>
               </a>
+              <a
+                href="https://kinlock.cloudtaxoffice.com/proavalon/CoreLink/Index?ReturnUrl=%2fproavalon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" size="sm">
+                  <Upload className="w-4 h-4 mr-2" />
+                  Client Portal
+                </Button>
+              </a>
             </div>
 
             {/* Auth links */}

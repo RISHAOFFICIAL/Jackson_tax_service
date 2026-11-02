@@ -61,6 +61,7 @@ const servicesDetail = [
       "No Hidden Fees - Transparent pricing",
       "Fast Approval - Quick verification process",
       "Available for All Filers - Including individuals and businesses",
+      "Terms and eligibility apply - contact us for details",
     ],
   },
 ];
@@ -99,9 +100,7 @@ export default function Services() {
           {servicesDetail.map((service, index) => (
             <div
               key={service.title}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? "lg:direction-rtl" : ""
-              }`}
+              className="grid lg:grid-cols-2 gap-12 items-center"
             >
               <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mb-6">
@@ -127,15 +126,26 @@ export default function Services() {
               </div>
               <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                 <div className="bg-surface rounded-2xl p-8">
-                  <img
-                    src={`https://placehold.co/600x400/1a2a4a/c9a84c?text=${encodeURIComponent(service.title)}`}
-                    alt={service.title}
-                    className="w-full rounded-xl shadow-lg"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = "none";
-                    }}
-                  />
+                  <div
+                    className="w-full rounded-xl shadow-lg relative overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary flex flex-col items-center justify-center text-center px-6 py-14"
+                    role="img"
+                    aria-label={service.title}
+                  >
+                    <svg
+                      viewBox="0 0 200 200"
+                      className="absolute -right-10 -top-10 h-48 w-48 text-gold/15"
+                      aria-hidden="true"
+                    >
+                      <circle cx="100" cy="100" r="95" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                      <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                      <circle cx="100" cy="100" r="45" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                    </svg>
+                    <div className="w-20 h-20 bg-gold/15 border border-gold/30 rounded-2xl flex items-center justify-center mb-5 relative">
+                      <service.icon className="w-10 h-10 text-gold" />
+                    </div>
+                    <p className="text-white font-display text-2xl font-bold relative">{service.title}</p>
+                    <p className="text-gold text-sm font-semibold mt-2 relative">Jackson Tax Service</p>
+                  </div>
                 </div>
               </div>
             </div>
