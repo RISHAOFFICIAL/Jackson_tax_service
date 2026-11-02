@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, Mail, MapPin, Calendar, Upload, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, Upload } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,17 +23,6 @@ export default function Footer() {
               Expert tax preparation and year-round support for individuals and businesses in 
               Ferndale, Michigan and surrounding areas.
             </p>
-            <div className="flex space-x-3">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold/20 transition">
-                <Facebook className="w-5 h-5 text-gold" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold/20 transition">
-                <Instagram className="w-5 h-5 text-gold" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold/20 transition">
-                <Linkedin className="w-5 h-5 text-gold" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -140,8 +129,8 @@ export default function Footer() {
               &copy; {currentYear} Jackson Tax Service. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-gold transition text-sm">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-gold transition text-sm">Terms of Service</a>
+              <Link href="/privacy" className="text-gray-400 hover:text-gold transition text-sm">Privacy Policy</Link>
+              <Link href="/terms" className="text-gray-400 hover:text-gold transition text-sm">Terms of Service</Link>
             </div>
           </div>
         </div>

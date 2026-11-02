@@ -8,6 +8,8 @@ import Resources from "./pages/Resources";
 import Login from "./pages/Login";
 import StudentPortal from "./pages/StudentPortal";
 import AdminDashboard from "./pages/AdminDashboard";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/login" component={Login} />
         <Route path="/student-portal" component={StudentPortal} />
         <Route path="/admin" component={AdminDashboard} />
+        <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/terms" component={TermsOfService} />
         {/* 404 */}
         <Route>
           <div className="min-h-[60vh] flex items-center justify-center">

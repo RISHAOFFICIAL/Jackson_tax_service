@@ -1,85 +1,41 @@
 import { useState } from "react";
-import { Calendar, ArrowRight, Tag, Calculator, BookOpen, FileText } from "lucide-react";
+import { Calculator, BookOpen, FileText, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Card, CardContent } from "../components/ui/Card";
-import { formatDate } from "../lib/utils";
-
-// Sample blog posts (in production, fetched from API)
-const blogPosts = [
-  {
-    id: 1,
-    title: "5 Essential Tax Tips for Freelancers in 2025",
-    slug: "tax-tips-freelancers-2025",
-    excerpt: "Navigate self-employment taxes with confidence. Here are the top tips every freelancer should know to maximize deductions and minimize stress.",
-    author: "Austin Jackson",
-    date: "2025-01-15",
-    tags: ["Freelancer", "Self-Employment", "Tax Tips"],
-    readTime: "5 min read",
-  },
-  {
-    id: 2,
-    title: "When Should You Start Planning for Tax Season?",
-    slug: "when-to-plan-tax-season",
-    excerpt: "The best time to prepare for tax season might surprise you. Year-round planning saves money and reduces stress come April.",
-    author: "Austin Jackson",
-    date: "2025-02-01",
-    tags: ["Tax Planning", "Preparation"],
-    readTime: "4 min read",
-  },
-  {
-    id: 3,
-    title: "Common Tax Deductions for Small Business Owners",
-    slug: "common-business-tax-deductions",
-    excerpt: "Don't miss these valuable deductions that could save your business thousands of dollars this tax season.",
-    author: "Austin Jackson",
-    date: "2025-03-10",
-    tags: ["Business", "Deductions", "Small Business"],
-    readTime: "6 min read",
-  },
-  {
-    id: 4,
-    title: "Understanding Your Tax Bracket: A Simple Guide",
-    slug: "understanding-tax-brackets",
-    excerpt: "Tax brackets don't have to be confusing. Learn how they work and how to use this knowledge to your advantage.",
-    author: "Austin Jackson",
-    date: "2025-04-05",
-    tags: ["Tax Basics", "Education"],
-    readTime: "3 min read",
-  },
-  {
-    id: 5,
-    title: "IRS Payment Plans: What You Need to Know",
-    slug: "irs-payment-plans",
-    excerpt: "If you owe taxes you can't pay, the IRS offers payment plans. Here's how to navigate the options available.",
-    author: "Austin Jackson",
-    date: "2025-04-20",
-    tags: ["IRS", "Payment Plans", "Tax Debt"],
-    readTime: "4 min read",
-  },
-];
 
 const resources = [
   {
     icon: Calculator,
     title: "Tax Calculator",
-    description: "Estimate your tax refund or amount owed with our simple tax calculator.",
-    link: "#",
+    description: "Estimate your tax refund or amount owed with the IRS Tax Withholding Estimator.",
+    link: "https://www.irs.gov/individuals/tax-withholding-estimator",
   },
   {
     icon: BookOpen,
     title: "Tax Guides",
-    description: "Comprehensive guides covering tax basics, deductions, and filing requirements.",
-    link: "#",
+    description: "Official IRS publications covering tax basics, deductions, and filing requirements.",
+    link: "https://www.irs.gov/publications",
   },
   {
     icon: FileText,
     title: "Document Checklist",
-    description: "What documents you need to bring for a smooth tax preparation experience.",
-    link: "#",
+    description: "The IRS checklist of what documents to bring for a smooth tax preparation experience.",
+    link: "https://www.irs.gov/individuals/checklist-for-free-tax-return-preparation",
   },
 ];
 
 export default function Resources() {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = "Newsletter signup";
+    const body = `Please add ${email} to the Jackson Tax Service newsletter.`;
+    window.location.href = `mailto:ajackstaxservice@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div>
       {/* Hero */}
@@ -109,61 +65,14 @@ export default function Resources() {
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-2">{resource.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{resource.description}</p>
-                  <a href={resource.link} className="text-gold font-semibold text-sm hover:text-gold-dark transition inline-flex items-center">
+                  <a
+                    href={resource.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold font-semibold text-sm hover:text-gold-dark transition inline-flex items-center"
+                  >
                     Learn More <ArrowRight className="w-4 h-4 ml-1" />
                   </a>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Posts */}
-      <section className="py-16 bg-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-primary mb-4 text-center">
-            Latest Articles
-          </h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Stay informed with the latest tax news, tips, and advice from our team.
-          </p>
-
-          <div className="space-y-8">
-            {blogPosts.map((post) => (
-              <Card key={post.id} className="hover:shadow-xl transition-shadow">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-4">
-                    <span className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      {post.date}
-                    </span>
-                    <span>{post.readTime}</span>
-                    <span>By {post.author}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
-                  <div className="flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-2">
-                      {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gold/10 text-gold"
-                        >
-                          <Tag className="w-3 h-3 mr-1" />
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <a
-                      href={`#${post.slug}`}
-                      className="text-gold font-semibold text-sm hover:text-gold-dark transition inline-flex items-center"
-                    >
-                      Read Full Article <ArrowRight className="w-4 h-4 ml-1" />
-                    </a>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -180,14 +89,17 @@ export default function Resources() {
           <p className="text-lg text-gray-300 mb-8">
             Subscribe to our newsletter for the latest tax news, tips, and updates.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-gold"
             />
-            <Button variant="gold">Subscribe</Button>
-          </div>
+            <Button variant="gold" type="submit">Subscribe</Button>
+          </form>
         </div>
       </section>
     </div>

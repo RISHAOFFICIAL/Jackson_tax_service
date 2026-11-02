@@ -6,7 +6,7 @@ const values = [
   {
     icon: Award,
     title: "Expertise You Can Trust",
-    description: "With 5+ years of experience and BBB accreditation, we bring professional excellence to every client relationship.",
+    description: "With 5+ years of experience, we bring professional excellence to every client relationship.",
   },
   {
     icon: Heart,
@@ -40,15 +40,25 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Photo */}
+            {/* TODO: replace this monogram panel with Austin's real photo when available */}
             <div className="relative">
               <div className="aspect-square bg-surface rounded-2xl overflow-hidden shadow-xl max-w-md mx-auto">
-                <div className="w-full h-full bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-3xl font-bold text-primary">AJ</span>
+                <div className="w-full h-full bg-gradient-to-br from-primary via-primary-light to-primary flex items-center justify-center relative">
+                  <svg
+                    viewBox="0 0 400 400"
+                    className="absolute inset-0 h-full w-full text-gold/10"
+                    aria-hidden="true"
+                  >
+                    <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                    <circle cx="200" cy="200" r="150" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                    <circle cx="200" cy="200" r="110" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                  </svg>
+                  <div className="text-center p-8 relative">
+                    <div className="w-28 h-28 bg-gold rounded-full flex items-center justify-center mx-auto mb-4 ring-4 ring-gold/30">
+                      <span className="text-4xl font-bold text-primary font-display">AJ</span>
                     </div>
-                    <p className="text-white text-lg font-semibold">Austin Jackson</p>
-                    <p className="text-gold text-sm">Founder & Tax Professional</p>
+                    <p className="text-white text-xl font-semibold font-display">Austin Jackson</p>
+                    <p className="text-gold text-sm font-medium tracking-wide uppercase mt-1">Founder and Tax Professional</p>
                   </div>
                 </div>
               </div>
@@ -71,13 +81,13 @@ export default function About() {
                   commitment to accuracy and excellence.
                 </p>
                 <p>
-                  Based in Ferndale, Michigan, Jackson Tax Service is proud to be a BBB-accredited 
+                  Based in Ferndale, Michigan, Jackson Tax Service is proud to be a local
                   business serving the metro Detroit area. We believe in building lasting relationships 
                   with our clients through transparent pricing, clear communication, and year-round support.
                 </p>
                 <p>
                   Whether you need help with a straightforward tax return, comprehensive bookkeeping, 
-                  or strategic tax planning for your business, Austin and his team are ready to help.
+                  or strategic tax planning for your business, Austin is ready to help.
                 </p>
               </div>
 
@@ -135,7 +145,7 @@ export default function About() {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {[
-              { title: "BBB Accredited", desc: "Better Business Bureau accredited since 2020" },
+              { title: "Locally Owned", desc: "Independent tax practice in Ferndale, Michigan" },
               { title: "5+ Years Experience", desc: "Professional tax preparation since 2020" },
               { title: "Continuing Education", desc: "Annual tax law updates and professional training" },
               { title: "Member in Good Standing", desc: "Professional tax preparation standards" },

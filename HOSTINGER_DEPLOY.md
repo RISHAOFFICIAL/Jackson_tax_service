@@ -2,7 +2,7 @@
 
 > **Target**: Hostinger shared hosting or Node.js hosting  
 > **Domain**: `ajackstax.com`  
-> **Repository**: https://github.com/[your-username]/jackson-tax-service
+> **Repository**: https://github.com/RISHAOFFICIAL/Jackson_tax_service
 
 ---
 
@@ -22,7 +22,7 @@ Before starting, make sure you have:
 
 ```bash
 # Clone locally first (if not already done)
-git clone https://github.com/YOUR_USERNAME/jackson-tax-service.git
+git clone https://github.com/RISHAOFFICIAL/Jackson_tax_service.git
 cd jackson-tax-service
 
 # Or use the push script
@@ -87,7 +87,7 @@ chmod +x scripts/github-push.sh
    ```
 3. Clone and setup:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/jackson-tax-service.git
+   git clone https://github.com/RISHAOFFICIAL/Jackson_tax_service.git
    cd jackson-tax-service
    npm install
    cp .env.hostinger .env

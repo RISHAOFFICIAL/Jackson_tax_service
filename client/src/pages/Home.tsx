@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import {
   FileText, Building2, BookOpen, Zap, Star, Shield, Clock, CalendarCheck,
-  CheckCircle, ChevronRight, Phone, Calendar, Upload,
+  CheckCircle, ChevronRight, Phone, Calendar, Upload, MapPin,
   GraduationCap, Award,
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
@@ -38,12 +38,12 @@ const services = [
     description: "Up to $7,000 advanced the same day your return is accepted.",
     price: "Up to $7,000 advance",
     icon: Zap,
-    features: ["Same-Day Processing", "Up to $7,000 Advance", "Direct Deposit"],
+    features: ["Same-Day Processing", "Up to $7,000 Advance", "Direct Deposit", "Terms and eligibility apply"],
   },
 ];
 
 const trustSignals = [
-  { icon: Shield, text: "BBB Accredited" },
+  { icon: MapPin, text: "Ferndale, Michigan" },
   { icon: Star, text: "5 Years Experience" },
   { icon: Clock, text: "Same-Day Processing" },
   { icon: CalendarCheck, text: "Year-Round Availability" },
@@ -125,7 +125,7 @@ export default function Home() {
             <div className="animate-hero">
               <div className="inline-flex items-center bg-gold/15 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-gold/25">
                 <Shield className="w-4 h-4 mr-2" />
-                BBB Accredited Business
+                Serving Metro Detroit Since 2020
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-6">
                 Expert Tax Preparation,{" "}
@@ -139,9 +139,8 @@ export default function Home() {
                 in Ferndale, Michigan. Let us help you maximize your refund and stay compliant.
               </p>
 
-              {/* Social proof — 5 stars anchored to the 3 existing 5-star client testimonials.
-                  Owner will supply the real Google rating/review count later.
-                  PLACEHOLDER: {{GOOGLE_RATING_COUNT}} — e.g. "4.9 ({{GOOGLE_RATING_COUNT}} reviews on Google)". */}
+              {/* Social proof, anchored to the 3 existing 5-star client testimonials below.
+                  The owner will supply the real Google rating and review count later. */}
               <div className="flex items-center space-x-3 mb-6">
                 <div className="flex" aria-label="Rated 5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, i) => (
