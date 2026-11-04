@@ -4,16 +4,14 @@ import { Card, CardContent } from "../components/ui/Card";
 import { Reveal } from "../components/ui/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
 
-// TODO: paste the published Client Upload Dashboard public link here once it is
-// shared. The dashboard is currently a demo preview only: nothing a visitor
-// uploads there is sent or saved, so do NOT link real client documents to it
-// until the live upload route is confirmed.
-const CLIENT_UPLOAD_DASHBOARD_URL = "";
+// Document uploads run through QuickBooks: every bookkeeping client is
+// onboarded in QuickBooks Online, which provides the secure document link.
+// There is no single public upload URL, so the page directs visitors to
+// email Lexis Sapphire Financial to get set up. Do NOT link the demo Client
+// Upload Dashboard preview: nothing uploaded there is sent or saved.
 
-// Contact email for Lexis Sapphire Financial bookkeeping. This is Risha's
-// current HGH Management Group address; swap in a Lexis Sapphire address
-// when one exists.
-const BOOKKEEPING_EMAIL = "hghmgmtgroup@gmail.com";
+// Contact email for Lexis Sapphire Financial bookkeeping.
+const BOOKKEEPING_EMAIL = "lexissapphire@gmail.com";
 
 const tiers = [
   {
@@ -229,26 +227,14 @@ export default function Bookkeeping() {
               preparer.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              {CLIENT_UPLOAD_DASHBOARD_URL ? (
-                <a
-                  href={CLIENT_UPLOAD_DASHBOARD_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="gold" size="lg">
-                    <Upload className="w-5 h-5 mr-2" />
-                    Upload your documents
-                  </Button>
-                </a>
-              ) : (
-                <span
-                  className="inline-flex items-center justify-center font-semibold rounded-lg px-8 py-4 text-lg bg-white/10 text-gray-300 cursor-not-allowed"
-                  title="Secure upload link coming soon"
-                >
+              <a
+                href={`mailto:${BOOKKEEPING_EMAIL}?subject=QuickBooks%20onboarding%20for%20monthly%20bookkeeping`}
+              >
+                <Button variant="gold" size="lg">
                   <Upload className="w-5 h-5 mr-2" />
-                  Upload your documents (link coming soon)
-                </span>
-              )}
+                  Get set up in QuickBooks
+                </Button>
+              </a>
               <a href={`mailto:${BOOKKEEPING_EMAIL}`}>
                 <Button
                   variant="outline"
@@ -260,12 +246,10 @@ export default function Bookkeeping() {
                 </Button>
               </a>
             </div>
-            {!CLIENT_UPLOAD_DASHBOARD_URL && (
-              <p className="text-gray-400 text-sm mt-6">
-                Our secure document upload link is coming soon. To get
-                started today, email us at {BOOKKEEPING_EMAIL}.
-              </p>
-            )}
+            <p className="text-gray-400 text-sm mt-6">
+              We onboard every bookkeeping client in QuickBooks. Email us
+              to get started and we will send your secure upload link.
+            </p>
           </Reveal>
         </div>
       </section>
