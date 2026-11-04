@@ -69,11 +69,11 @@ async function seed() {
       isActive: true,
     },
     {
-      title: "Year-Round Bookkeeping",
-      description: "Professional bookkeeping services to keep your finances organized throughout the year. Focus on growing your business while we handle the numbers.",
+      title: "Monthly Bookkeeping",
+      description: "Monthly bookkeeping from our partner, Lexis Sapphire Financial. Clean books every month, so you always know what you made, and tax time is a folder, not a shoebox.",
       icon: "BookOpen",
-      features: JSON.stringify(["Monthly Reconciliation", "Expense Tracking & Categorization", "Financial Reports (P&L, Balance Sheet)", "Payroll Support", "Tax-Ready Records"]),
-      pricing: "Starting at $200/month",
+      features: JSON.stringify(["Monthly Reconciliation", "Expense Tracking & Categorization", "Financial Reports (P&L, Balance Sheet)", "Receipt Management", "Tax-Ready Records"]),
+      pricing: "From $299/month",
       orderIndex: 3,
       isActive: true,
     },
@@ -143,7 +143,7 @@ async function seed() {
     },
     {
       question: "What is your pricing structure?",
-      answer: "Our pricing depends on the complexity of your tax situation. Individual tax returns start at $150, business returns start at $350, and bookkeeping services start at $200/month. We offer free initial consultations to discuss your specific needs and provide an accurate, no-obligation quote. We believe in transparent pricing with no hidden fees.",
+      answer: "Our pricing depends on the complexity of your tax situation. Individual tax returns start at $150, business returns start at $350, and monthly bookkeeping from our partner, Lexis Sapphire Financial, starts at $299/month. We offer free initial consultations to discuss your specific needs and provide an accurate, no-obligation quote. We believe in transparent pricing with no hidden fees.",
       category: "pricing",
       orderIndex: 8,
       isActive: true,
@@ -692,7 +692,7 @@ Catching discrepancies, missing payments, or accounting errors early prevents sm
 When you track expenses in real time, you're less likely to miss deductible expenses. This alone often covers the cost of professional bookkeeping services.
 
 OUR BOOKKEEPING SERVICES
-At Jackson Tax Service, we offer comprehensive year-round bookkeeping starting at $200/month, including:
+Monthly bookkeeping from our partner, Lexis Sapphire Financial, starts at $299/month and includes:
 - Monthly account reconciliation
 - Expense categorization
 - Profit & Loss statements
