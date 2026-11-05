@@ -82,21 +82,27 @@ export default function Bookkeeping() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 text-center">
-          <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-7 animate-hero">
-            <BookOpen className="w-4 h-4 text-gold-dark" />
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="absolute -top-24 left-[15%] h-80 w-80 rounded-full bg-gold/12 blur-[110px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-28 lg:pb-24 text-center">
+          <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold-light px-5 py-2.5 rounded-full text-sm font-semibold mb-8 animate-hero">
+            <BookOpen className="w-4 h-4" />
             Bookkeeping by Lexis Sapphire Financial
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 animate-hero">
-            Clean books, <span className="text-gold-dark">every month.</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-7 animate-hero tracking-tight">
+            <span className="text-white">Clean books,</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+              every month.
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-4 animate-hero" style={{ animationDelay: "100ms" }}>
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-5 animate-hero" style={{ animationDelay: "100ms" }}>
             “I keep your books clean every month, so you always know what you
             made — and tax time is a folder, not a shoebox.”
           </p>
-          <p className="text-sm text-faint animate-hero" style={{ animationDelay: "140ms" }}>
+          <p className="text-sm text-gold-light/80 font-medium tracking-wide animate-hero" style={{ animationDelay: "140ms" }}>
             — Risha Smith, Lexis Sapphire Financial · Partner of Jackson Tax Service
           </p>
         </div>
@@ -113,23 +119,26 @@ export default function Bookkeeping() {
             />
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
             {tiers.map((tier, i) => (
               <Reveal key={tier.name} delay={i * 90} className="h-full">
                 <Card
-                  className={`relative h-full p-8 flex flex-col ${
+                  className={`relative h-full p-8 flex flex-col overflow-hidden ${
                     tier.popular
-                      ? "border-2 !border-gold shadow-[0_24px_60px_-24px_rgba(193,154,61,0.45)]"
-                      : "hover:shadow-[0_20px_50px_-20px_rgba(22,38,63,0.25)] hover:-translate-y-1 transition-all duration-300"
+                      ? "border-2 !border-gold shadow-[0_32px_80px_-24px_rgba(193,154,61,0.5)] lg:scale-[1.04] bg-white"
+                      : "hover:shadow-[0_24px_60px_-20px_rgba(22,38,63,0.3)] hover:-translate-y-1.5 transition-all duration-300"
                   }`}
                 >
                   {tier.popular && (
-                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-gold text-primary-deep text-xs font-bold uppercase tracking-[0.12em] px-4 py-1.5 rounded-full whitespace-nowrap">
-                      <Star className="w-3.5 h-3.5 fill-current" />
-                      Most popular
-                    </span>
+                    <>
+                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light" />
+                      <span className="absolute -top-0 left-1/2 -translate-x-1/2 translate-y-3 inline-flex items-center gap-1.5 bg-gradient-to-b from-gold-light to-gold text-primary-deep text-xs font-bold uppercase tracking-[0.12em] px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_8px_20px_-8px_rgba(193,154,61,0.7)]">
+                        <Star className="w-3.5 h-3.5 fill-current" />
+                        Most popular
+                      </span>
+                    </>
                   )}
-                  <h3 className="text-xl font-semibold mb-1">{tier.name}</h3>
+                  <h3 className={`text-xl font-semibold mb-1 ${tier.popular ? "mt-4" : ""}`}>{tier.name}</h3>
                   <p className="text-muted text-sm mb-6">{tier.tagline}</p>
                   <p className="mb-7">
                     <span className="text-5xl font-semibold font-display text-primary">{tier.price}</span>
@@ -195,25 +204,30 @@ export default function Bookkeeping() {
 
       {/* Trust + CTA */}
       <section className="relative overflow-hidden bg-primary-deep">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_120%_at_50%_100%,#243b63_0%,#0c1729_70%)]" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-dots opacity-60" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
           <Reveal>
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-gold-light px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold-light px-4 py-2 rounded-full text-sm font-semibold mb-7">
               <ShieldCheck className="w-4 h-4" />
               No tax filing · No payroll · Just clean books
             </div>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-5">
-              Ready to hand off your books?
+            <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-6 tracking-tight">
+              Ready to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold italic">
+                hand off your books?
+              </span>
             </h2>
-            <p className="text-lg text-white/65 mb-9 max-w-xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/65 mb-10 max-w-xl mx-auto">
               Email us to get set up in QuickBooks. We'll send your secure
               upload link and take it from there.
             </p>
-            <div className="flex flex-wrap justify-center gap-3.5">
+            <div className="flex flex-wrap justify-center gap-4">
               <a
                 href={`mailto:${BOOKKEEPING_EMAIL}?subject=${encodeURIComponent("QuickBooks onboarding for monthly bookkeeping")}`}
               >
-                <Button variant="gold" size="lg">
+                <Button variant="gold" size="lg" className="text-lg px-10 py-4">
                   Get set up in QuickBooks
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -222,7 +236,7 @@ export default function Bookkeeping() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:border-white/40"
+                  className="text-lg px-8 py-4 border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-gold/50 backdrop-blur"
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   {BOOKKEEPING_EMAIL}

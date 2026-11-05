@@ -43,16 +43,24 @@ export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold-dark mb-5 animate-hero">
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="absolute -top-24 left-[12%] h-80 w-80 rounded-full bg-gold/12 blur-[110px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-28 lg:pb-24 text-center">
+          <p className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.24em] text-gold-light mb-6 animate-hero">
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
             Contact
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 animate-hero">
-            Let's talk about <span className="text-gold-dark">your taxes.</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-7 animate-hero tracking-tight">
+            <span className="text-white">Let's talk about</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+              your taxes.
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto animate-hero" style={{ animationDelay: "100ms" }}>
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto animate-hero" style={{ animationDelay: "100ms" }}>
             Call, email, or send a message below. You'll hear back within one
             business day — usually much faster.
           </p>
@@ -64,7 +72,8 @@ export default function Contact() {
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14">
             {/* Form */}
             <Reveal>
-              <div className="bg-white rounded-3xl border border-line p-8 sm:p-10">
+              <div className="relative bg-white rounded-[2rem] border border-line p-8 sm:p-10 overflow-hidden shadow-[0_24px_60px_-28px_rgba(22,38,63,0.35)]">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light" />
                 {submitted ? (
                   <div className="text-center py-8">
                     <span className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
@@ -172,7 +181,9 @@ export default function Contact() {
               </Reveal>
 
               <Reveal delay={160}>
-                <div className="bg-primary-deep rounded-3xl p-7">
+                <div className="relative bg-primary-deep rounded-3xl p-7 overflow-hidden gold-hairline">
+                  <div className="absolute inset-0 texture-dots opacity-50" />
+                  <div className="relative">
                   <h3 className="text-lg font-semibold text-white mb-5">Skip the form</h3>
                   <div className="space-y-3">
                     <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="block">
@@ -191,6 +202,7 @@ export default function Contact() {
                         Upload documents
                       </Button>
                     </a>
+                  </div>
                   </div>
                 </div>
               </Reveal>

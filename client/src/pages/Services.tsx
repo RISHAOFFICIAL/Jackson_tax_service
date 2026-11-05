@@ -79,16 +79,24 @@ export default function Services() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold-dark mb-5 animate-hero">
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="absolute -top-24 right-[10%] h-80 w-80 rounded-full bg-gold/12 blur-[110px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-28 lg:pb-24 text-center">
+          <p className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.24em] text-gold-light mb-6 animate-hero">
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
             Services
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 animate-hero">
-            Tax help that fits <span className="text-gold-dark">your situation.</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-7 animate-hero tracking-tight">
+            <span className="text-white">Tax help that fits</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+              your situation.
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed animate-hero" style={{ animationDelay: "100ms" }}>
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed animate-hero" style={{ animationDelay: "100ms" }}>
             Transparent pricing, plain-English explanations, and a real person
             who picks up the phone. That's the whole pitch.
           </p>
@@ -102,21 +110,29 @@ export default function Services() {
             {servicesDetail.map((service, index) => (
               <Reveal key={service.title}>
                 <div
-                  className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-3xl p-8 sm:p-12 ${
+                  className={`relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-[2rem] p-8 sm:p-12 overflow-hidden ${
                     service.highlight
-                      ? "bg-primary-deep"
+                      ? "bg-primary-deep gold-hairline"
                       : index % 2 === 1
                         ? "bg-surface"
-                        : "bg-white border border-line"
+                        : "bg-white border border-line shadow-[0_16px_44px_-24px_rgba(22,38,63,0.25)]"
                   }`}
                 >
-                  <div>
+                  {service.highlight && (
+                    <>
+                      <div className="absolute inset-0 texture-dots opacity-60" />
+                      <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+                    </>
+                  )}
+                  <div className="relative">
                     <span
-                      className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${
-                        service.highlight ? "bg-gold/15" : "bg-primary"
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-[0_10px_24px_-10px_rgba(22,38,63,0.5)] ${
+                        service.highlight
+                          ? "bg-gradient-to-br from-gold-light to-gold-dark border border-gold/40"
+                          : "bg-gradient-to-br from-primary to-primary-deep border border-gold/20"
                       }`}
                     >
-                      <service.icon className={`w-7 h-7 ${service.highlight ? "text-gold-light" : "text-gold-light"}`} />
+                      <service.icon className={`w-7 h-7 ${service.highlight ? "text-primary-deep" : "text-gold"}`} />
                     </span>
                     <p
                       className={`text-xs font-bold uppercase tracking-[0.2em] mb-3 ${
@@ -167,10 +183,10 @@ export default function Services() {
                       </a>
                     </div>
                   </div>
-                  <div>
+                  <div className="relative">
                     <ul
                       className={`rounded-2xl p-7 sm:p-8 space-y-4 ${
-                        service.highlight ? "bg-white/[0.06] border border-white/10" : "bg-surface"
+                        service.highlight ? "bg-white/[0.05] border border-gold/25" : "bg-surface border border-line/60"
                       }`}
                     >
                       {service.details.map((detail) => (
@@ -196,18 +212,23 @@ export default function Services() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-primary-deep">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_120%_at_50%_100%,#243b63_0%,#0c1729_70%)]" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-dots opacity-60" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-5">
-              Not sure which service you need?
+            <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-6 tracking-tight">
+              Not sure which{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold italic">
+                service you need?
+              </span>
             </h2>
-            <p className="text-lg text-white/65 mb-9 max-w-xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/65 mb-10 max-w-xl mx-auto">
               Book a free consultation. We'll look at your situation and recommend
               the right fit — no pressure, no upsell.
             </p>
             <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
-              <Button variant="gold" size="lg">
+              <Button variant="gold" size="lg" className="text-lg px-10 py-4">
                 <Calendar className="w-5 h-5 mr-2" />
                 Free consultation
               </Button>

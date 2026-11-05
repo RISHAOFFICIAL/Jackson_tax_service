@@ -65,6 +65,44 @@
   background: var(--color-gold);
 }
 
+/* ---------- Premium navy treatments ---------- */
+/* Layered deep-navy hero: gold glow top-left, navy lift right, deep base */
+.hero-navy {
+  background-color: #0c1729;
+  background-image:
+    radial-gradient(60% 55% at 12% 0%, rgba(193, 154, 61, 0.16) 0%, transparent 60%),
+    radial-gradient(55% 50% at 92% 18%, rgba(36, 59, 99, 0.85) 0%, transparent 65%),
+    radial-gradient(75% 95% at 50% 115%, #243b63 0%, #0c1729 72%);
+}
+/* Subtle diagonal line texture for navy surfaces */
+.texture-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.028) 0px,
+    rgba(255, 255, 255, 0.028) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+/* Subtle dot grid for navy surfaces */
+.texture-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+/* Gold hairline frame for premium cards on navy */
+.gold-hairline {
+  border: 1px solid rgba(193, 154, 61, 0.38);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.25),
+    0 24px 60px -24px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+/* Thin gold gradient rule (top edge accents) */
+.gold-rule-top {
+  background: linear-gradient(90deg, transparent, rgba(193, 154, 61, 0.65) 30%, rgba(193, 154, 61, 0.65) 70%, transparent);
+  height: 1px;
+}
+
 /* ---------- Motion & interaction ---------- */
 @keyframes hero-fade-up {
   from {

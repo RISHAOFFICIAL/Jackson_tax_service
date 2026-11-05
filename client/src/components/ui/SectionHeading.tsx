@@ -11,8 +11,8 @@ interface SectionHeadingProps {
 }
 
 /**
- * Clean section header: small-caps gold eyebrow, serif display title,
- * and an optional subtitle. No decorative motifs — whitespace does the work.
+ * Section header: small-caps gold eyebrow, serif display title,
+ * optional gold rule, and an optional subtitle.
  */
 export function SectionHeading({
   eyebrow,
@@ -27,15 +27,19 @@ export function SectionHeading({
     <div className={cn("mb-12 max-w-2xl lg:mb-16", center && "mx-auto text-center", className)}>
       <p
         className={cn(
-          "text-xs font-bold uppercase tracking-[0.24em]",
+          "inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.24em]",
           light ? "text-gold-light" : "text-gold-dark"
         )}
       >
+        <span className={cn("h-px w-8", light ? "bg-gold-light/60" : "bg-gold/60")} aria-hidden />
         {eyebrow}
+        {center && (
+          <span className={cn("h-px w-8", light ? "bg-gold-light/60" : "bg-gold/60")} aria-hidden />
+        )}
       </p>
       <h2
         className={cn(
-          "mt-4 text-3xl font-semibold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]",
+          "mt-5 text-4xl font-semibold sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]",
           light ? "text-white" : "text-primary"
         )}
       >

@@ -9,8 +9,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-deep text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <footer className="relative bg-primary-deep text-white overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+      <div className="absolute inset-0 texture-diagonal opacity-40" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info */}
           <div>

@@ -116,39 +116,48 @@ export default function Home() {
   return (
     <div>
       {/* ---------- Hero ---------- */}
-      <section className="relative overflow-hidden bg-white">
-        {/* Soft gradient wash */}
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
-        <div className="absolute -top-24 right-[-8%] h-[28rem] w-[28rem] rounded-full bg-gold/10 blur-[100px]" />
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        {/* Gold glow accents */}
+        <div className="absolute -top-32 left-[8%] h-96 w-96 rounded-full bg-gold/15 blur-[120px]" />
+        <div className="absolute bottom-0 right-[-5%] h-[26rem] w-[26rem] rounded-full bg-gold/[0.07] blur-[110px]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-28 lg:pb-32">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
             <div className="animate-hero">
-              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-7">
-                <ShieldCheck className="w-4 h-4 text-gold-dark" />
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold-light px-4 py-2 rounded-full text-sm font-semibold mb-8">
+                <ShieldCheck className="w-4 h-4" />
                 Serving Metro Detroit since 2020
               </div>
 
-              <h1 className="text-[2.75rem] sm:text-6xl lg:text-[4.25rem] font-semibold leading-[1.05] mb-6">
-                Taxes done right,{" "}
-                <span className="text-gold-dark">without the stress.</span>
+              <h1 className="text-5xl sm:text-7xl lg:text-[5.25rem] font-semibold leading-[1.02] tracking-tight mb-7">
+                <span className="text-white">Taxes done right,</span>{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+                  without the stress.
+                </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-muted leading-relaxed max-w-xl mb-8">
+              <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-xl mb-10">
                 Expert tax preparation and year-round bookkeeping for individuals
                 and businesses in Ferndale, Michigan — and clients everywhere,
                 virtually.
               </p>
 
-              <div className="flex flex-wrap gap-3.5 mb-10">
+              <div className="flex flex-wrap gap-4 mb-12">
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
-                  <Button variant="gold" size="lg">
+                  <Button variant="gold" size="lg" className="text-lg px-10 py-4">
                     <Calendar className="w-5 h-5 mr-2" />
                     Book Free Consultation
                   </Button>
                 </a>
                 <a href={PORTAL} target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-lg px-10 py-4 border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-gold/50 backdrop-blur"
+                  >
                     <Upload className="w-5 h-5 mr-2" />
                     Client Portal
                   </Button>
@@ -156,35 +165,35 @@ export default function Home() {
               </div>
 
               {/* Social proof */}
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
                 <div className="flex items-center gap-2.5">
                   <div className="flex" aria-label="5 out of 5 stars">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-[18px] h-[18px] text-gold fill-current" />
+                      <Star key={i} className="w-5 h-5 text-gold fill-current" />
                     ))}
                   </div>
-                  <span className="text-sm font-medium text-muted">Five-star client reviews</span>
+                  <span className="text-sm font-medium text-white/70">Five-star client reviews</span>
                 </div>
-                <span className="hidden sm:block w-px h-5 bg-line" />
-                <a href="tel:313-427-4856" className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold-dark transition">
-                  <Phone className="w-4 h-4 text-gold-dark" />
+                <span className="hidden sm:block w-px h-5 bg-white/15" />
+                <a href="tel:313-427-4856" className="flex items-center gap-2 text-sm font-bold text-white hover:text-gold-light transition">
+                  <Phone className="w-4 h-4 text-gold" />
                   313-427-4856
                 </a>
               </div>
             </div>
 
-            {/* Booking card */}
+            {/* Booking card — white pops against navy */}
             <div className="animate-hero" style={{ animationDelay: "150ms" }}>
-              <div className="relative bg-primary rounded-3xl p-8 sm:p-10 overflow-hidden">
-                <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-gold/15 blur-[70px]" />
+              <div className="relative bg-white rounded-3xl p-8 sm:p-10 overflow-hidden shadow-[0_40px_90px_-20px_rgba(0,0,0,0.5)]">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-dark via-gold to-gold-light" />
                 <div className="relative">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-light mb-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold-dark mb-4">
                     Get started
                   </p>
-                  <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-3">
+                  <h2 className="text-2xl sm:text-[1.75rem] font-semibold text-primary mb-3">
                     Your refund is waiting.
                   </h2>
-                  <p className="text-white/65 mb-8 leading-relaxed">
+                  <p className="text-muted mb-8 leading-relaxed">
                     Book a free consultation. We'll review your situation and
                     map out the fastest path to your refund.
                   </p>
@@ -196,20 +205,20 @@ export default function Home() {
                   </a>
                   <a
                     href="tel:313-427-4856"
-                    className="block text-center text-white/80 hover:text-gold-light font-semibold transition"
+                    className="block text-center text-primary/70 hover:text-gold-dark font-semibold transition"
                   >
                     or call 313-427-4856
                   </a>
 
-                  <div className="mt-8 pt-7 border-t border-white/10 grid grid-cols-3 gap-4">
+                  <div className="mt-8 pt-7 border-t border-line grid grid-cols-3 gap-4">
                     {[
                       { value: "5+", label: "Years serving Detroit" },
                       { value: "$7k", label: "Max same-day advance" },
                       { value: "100%", label: "Virtual-friendly" },
                     ].map((s) => (
                       <div key={s.label}>
-                        <p className="text-2xl font-bold text-gold-light font-display">{s.value}</p>
-                        <p className="text-xs text-white/55 mt-1 leading-snug">{s.label}</p>
+                        <p className="text-[1.7rem] font-bold text-gold-dark font-display">{s.value}</p>
+                        <p className="text-xs text-muted mt-1 leading-snug">{s.label}</p>
                       </div>
                     ))}
                   </div>
@@ -219,13 +228,13 @@ export default function Home() {
           </div>
 
           {/* Trust signals */}
-          <div className="mt-14 pt-8 border-t border-line grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-16 pt-9 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-5">
             {trustSignals.map((s) => (
-              <div key={s.label} className="flex items-center gap-3">
-                <span className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
-                  <s.icon className="w-5 h-5 text-gold-dark" />
+              <div key={s.label} className="flex items-center gap-3.5">
+                <span className="w-11 h-11 rounded-xl bg-gold/10 border border-gold/25 flex items-center justify-center flex-shrink-0">
+                  <s.icon className="w-5 h-5 text-gold-light" />
                 </span>
-                <span className="text-[15px] font-medium text-ink">{s.label}</span>
+                <span className="text-[15px] font-semibold text-white/85">{s.label}</span>
               </div>
             ))}
           </div>
@@ -246,9 +255,10 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, i) => (
               <Reveal key={service.title} delay={i * 80} className="h-full">
-                <Card className="h-full p-7 flex flex-col hover:shadow-[0_20px_50px_-20px_rgba(22,38,63,0.25)] hover:-translate-y-1.5 transition-all duration-300">
-                  <span className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-5">
-                    <service.icon className="w-6 h-6 text-gold-light" />
+                <Card className="relative h-full p-7 flex flex-col overflow-hidden hover:shadow-[0_24px_60px_-20px_rgba(22,38,63,0.3)] hover:-translate-y-1.5 transition-all duration-300 group">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="w-[52px] h-[52px] rounded-2xl bg-gradient-to-br from-primary to-primary-deep border border-gold/20 flex items-center justify-center mb-5 shadow-[0_8px_20px_-8px_rgba(22,38,63,0.5)]">
+                    <service.icon className="w-6 h-6 text-gold" />
                   </span>
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                   <p className="text-gold-dark font-bold text-[15px] mb-3">{service.price}</p>
@@ -290,23 +300,29 @@ export default function Home() {
       <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl bg-primary-deep px-8 py-14 sm:px-14 lg:px-20">
-              <div className="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-gold/10 blur-[90px]" />
-              <div className="absolute -top-24 -right-16 h-72 w-72 rounded-full bg-gold/[0.07] blur-[80px]" />
+            <div className="relative overflow-hidden rounded-[2rem] bg-primary-deep gold-hairline px-8 py-14 sm:px-14 lg:px-20">
+              <div className="absolute inset-0 texture-dots opacity-70" />
+              <div className="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-gold/15 blur-[90px]" />
+              <div className="absolute -top-24 -right-16 h-72 w-72 rounded-full bg-gold/10 blur-[80px]" />
+              <div className="absolute top-0 left-0 right-0 gold-rule-top" />
               <div className="relative grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold-light mb-4">
+                  <p className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.22em] text-gold-light mb-5">
+                    <span className="h-px w-8 bg-gold-light/60" aria-hidden />
                     Partner spotlight
                   </p>
-                  <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-4">
-                    Monthly bookkeeping, handled for you.
+                  <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1] font-semibold text-white mb-5">
+                    Monthly bookkeeping,{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold">
+                      handled for you.
+                    </span>
                   </h2>
-                  <p className="text-white/65 text-lg leading-relaxed mb-2 max-w-xl">
+                  <p className="text-white/70 text-lg leading-relaxed mb-2 max-w-xl">
                     Our partner <span className="text-white font-semibold">Lexis Sapphire Financial</span> keeps
                     your books clean every month, so you always know what you made — and tax time is a
                     folder, not a shoebox.
                   </p>
-                  <p className="text-gold-light font-bold mb-8">Plans from $299/month</p>
+                  <p className="text-gold-light font-bold text-lg mb-8">Plans from $299/month</p>
                   <div className="flex flex-wrap gap-3.5">
                     <Link href="/bookkeeping">
                       <Button variant="gold" size="lg">
@@ -322,8 +338,8 @@ export default function Home() {
                     { title: "Simple monthly report", desc: "Know what you made" },
                     { title: "Tax-ready year end", desc: "A clean package for your preparer" },
                   ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4 bg-white/[0.06] border border-white/10 rounded-2xl p-5">
-                      <CheckCircle className="w-6 h-6 text-gold-light flex-shrink-0 mt-0.5" />
+                    <div key={item.title} className="flex items-start gap-4 bg-white/[0.05] border border-gold/20 rounded-2xl p-5 backdrop-blur-sm">
+                      <CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-white font-semibold">{item.title}</p>
                         <p className="text-white/55 text-sm">{item.desc}</p>
@@ -351,8 +367,9 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {steps.map((item, i) => (
               <Reveal key={item.step} delay={i * 100} className="h-full">
-                <div className="relative h-full bg-white rounded-3xl border border-line p-8">
-                  <p className="font-display text-6xl font-semibold text-gold/25 mb-5">{item.step}</p>
+                <div className="group relative h-full bg-white rounded-3xl border border-line p-8 overflow-hidden hover:shadow-[0_24px_60px_-24px_rgba(22,38,63,0.3)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <p className="font-display text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gold/50 to-gold/10 mb-5">{item.step}</p>
                   <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                   <p className="text-muted leading-relaxed">{item.description}</p>
                 </div>
@@ -376,15 +393,16 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 90} className="h-full">
-                <Card className="h-full p-8 flex flex-col">
+                <Card className="relative h-full p-8 flex flex-col overflow-hidden hover:shadow-[0_24px_60px_-24px_rgba(22,38,63,0.3)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
                   <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
                     {Array.from({ length: 5 }).map((_, s) => (
                       <Star key={s} className="w-[18px] h-[18px] text-gold fill-current" />
                     ))}
                   </div>
-                  <p className="text-ink/85 leading-relaxed mb-6 flex-1">“{t.content}”</p>
+                  <p className="text-ink/85 leading-relaxed mb-6 flex-1 text-[17px]">“{t.content}”</p>
                   <div className="flex items-center gap-3">
-                    <span className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-gold-light font-bold font-display">
+                    <span className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-deep border border-gold/30 flex items-center justify-center text-gold font-bold font-display text-lg">
                       {t.name.charAt(0)}
                     </span>
                     <div>
@@ -468,22 +486,30 @@ export default function Home() {
 
       {/* ---------- Final CTA ---------- */}
       <section className="relative overflow-hidden bg-primary-deep">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_120%_at_50%_100%,#243b63_0%,#0c1729_70%)]" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-28 text-center">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-[42rem] rounded-full bg-gold/10 blur-[130px]" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
           <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold-light mb-5">
+            <p className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.24em] text-gold-light mb-6">
+              <span className="h-px w-8 bg-gold-light/60" aria-hidden />
               Free consultation
+              <span className="h-px w-8 bg-gold-light/60" aria-hidden />
             </p>
-            <h2 className="text-3xl sm:text-5xl font-semibold text-white mb-6">
-              Ready when you are.
+            <h2 className="text-4xl sm:text-6xl font-semibold text-white mb-7 tracking-tight">
+              Ready when{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+                you are.
+              </span>
             </h2>
-            <p className="text-lg text-white/65 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/65 mb-11 max-w-2xl mx-auto leading-relaxed">
               Book online in under a minute, or call and talk to a real person.
               Either way, your refund gets the attention it deserves.
             </p>
-            <div className="flex flex-wrap justify-center gap-3.5">
+            <div className="flex flex-wrap justify-center gap-4">
               <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
-                <Button variant="gold" size="lg">
+                <Button variant="gold" size="lg" className="text-lg px-10 py-4">
                   <Calendar className="w-5 h-5 mr-2" />
                   Book appointment
                 </Button>
@@ -492,7 +518,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:border-white/40"
+                  className="text-lg px-10 py-4 border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-gold/50 backdrop-blur"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   313-427-4856

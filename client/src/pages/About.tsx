@@ -34,16 +34,24 @@ export default function About() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold-dark mb-5 animate-hero">
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="absolute -top-24 right-[12%] h-80 w-80 rounded-full bg-gold/12 blur-[110px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-28 lg:pb-24 text-center">
+          <p className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.24em] text-gold-light mb-6 animate-hero">
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
             About
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 animate-hero">
-            Meet Austin Jackson
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-7 animate-hero tracking-tight text-white">
+            Meet{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+              Austin Jackson
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto animate-hero" style={{ animationDelay: "100ms" }}>
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto animate-hero" style={{ animationDelay: "100ms" }}>
             The person behind Jackson Tax Service — and the reason Detroit
             keeps coming back every tax season.
           </p>
@@ -57,20 +65,21 @@ export default function About() {
             {/* Photo placeholder — replace with Austin's real photo when available */}
             <Reveal>
               <div className="relative max-w-md mx-auto w-full">
-                <div className="aspect-[4/5] rounded-3xl bg-primary-deep overflow-hidden relative">
-                  <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_50%_0%,#243b63_0%,#0c1729_75%)]" />
+                <div className="aspect-[4/5] rounded-[2rem] bg-primary-deep overflow-hidden relative gold-hairline">
+                  <div className="absolute inset-0 hero-navy" />
+                  <div className="absolute inset-0 texture-dots opacity-50" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-10 text-center">
-                    <span className="w-24 h-24 rounded-full bg-gold flex items-center justify-center mb-6">
-                      <span className="text-3xl font-bold text-primary-deep font-display">AJ</span>
+                    <span className="w-28 h-28 rounded-full bg-gradient-to-b from-gold-light to-gold-dark flex items-center justify-center mb-6 shadow-[0_16px_40px_-12px_rgba(193,154,61,0.6)] ring-4 ring-gold/20">
+                      <span className="text-4xl font-bold text-primary-deep font-display">AJ</span>
                     </span>
-                    <p className="text-white text-2xl font-semibold font-display">Austin Jackson</p>
-                    <p className="text-gold-light text-xs font-bold uppercase tracking-[0.2em] mt-2">
+                    <p className="text-white text-3xl font-semibold font-display">Austin Jackson</p>
+                    <p className="text-gold-light text-xs font-bold uppercase tracking-[0.22em] mt-3">
                       Founder & Tax Professional
                     </p>
                   </div>
                 </div>
-                <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-white border border-line rounded-2xl shadow-[0_20px_50px_-20px_rgba(22,38,63,0.3)] px-6 py-4">
-                  <p className="text-2xl font-bold text-primary font-display">5+</p>
+                <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-white border border-gold/30 rounded-2xl shadow-[0_24px_60px_-20px_rgba(22,38,63,0.35)] px-6 py-4">
+                  <p className="text-3xl font-bold text-gold-dark font-display">5+</p>
                   <p className="text-xs text-muted font-medium">years serving Detroit</p>
                 </div>
               </div>
@@ -130,9 +139,10 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-6">
             {values.map((value, i) => (
               <Reveal key={value.title} delay={i * 90} className="h-full">
-                <div className="h-full bg-white rounded-3xl border border-line p-8">
-                  <span className="w-[52px] h-[52px] rounded-2xl bg-primary flex items-center justify-center mb-6">
-                    <value.icon className="w-6 h-6 text-gold-light" />
+                <div className="group relative h-full bg-white rounded-3xl border border-line p-8 overflow-hidden hover:shadow-[0_24px_60px_-24px_rgba(22,38,63,0.3)] hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="w-[56px] h-[56px] rounded-2xl bg-gradient-to-br from-primary to-primary-deep border border-gold/20 flex items-center justify-center mb-6 shadow-[0_10px_24px_-10px_rgba(22,38,63,0.5)]">
+                    <value.icon className="w-6 h-6 text-gold" />
                   </span>
                   <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                   <p className="text-muted leading-relaxed">{value.description}</p>
@@ -171,8 +181,10 @@ export default function About() {
       </section>
 
       {/* Contact strip */}
-      <section className="bg-primary-deep">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid sm:grid-cols-3 gap-8 text-center">
             {[
               { icon: Phone, label: "Phone", value: "313-427-4856", href: "tel:313-427-4856" },

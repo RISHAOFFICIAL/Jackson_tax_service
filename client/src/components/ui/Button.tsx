@@ -25,7 +25,7 @@ export function Button({
       "border border-line bg-white text-primary hover:border-primary hover:bg-surface focus:ring-primary",
     ghost: "text-primary hover:bg-surface focus:ring-primary",
     gold:
-      "bg-gold text-primary-deep hover:bg-gold-dark hover:text-white hover:-translate-y-0.5 hover:shadow-lg focus:ring-gold",
+      "bg-gradient-to-b from-gold-light via-gold to-gold-dark text-primary-deep hover:from-gold hover:via-gold hover:to-gold-dark hover:text-white hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(193,154,61,0.65)] focus:ring-gold shadow-[0_12px_30px_-10px_rgba(193,154,61,0.55)] font-bold",
   };
   const sizes = {
     sm: "px-5 py-2.5 text-sm",

@@ -61,16 +61,24 @@ export default function Resources() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-gold-dark mb-5 animate-hero">
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-diagonal" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="absolute -top-24 right-[15%] h-80 w-80 rounded-full bg-gold/12 blur-[110px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-28 lg:pb-24 text-center">
+          <p className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.24em] text-gold-light mb-6 animate-hero">
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
             Resources
+            <span className="h-px w-8 bg-gold-light/60" aria-hidden />
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 animate-hero">
-            Tax knowledge, <span className="text-gold-dark">minus the jargon.</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-7 animate-hero tracking-tight">
+            <span className="text-white">Tax knowledge,</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-light italic">
+              minus the jargon.
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto animate-hero" style={{ animationDelay: "100ms" }}>
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto animate-hero" style={{ animationDelay: "100ms" }}>
             Practical tips and trusted tools to help you make smarter money
             moves all year — not just in April.
           </p>
@@ -94,10 +102,11 @@ export default function Resources() {
                   href={resource.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block h-full bg-white rounded-3xl border border-line p-8 hover:shadow-[0_20px_50px_-20px_rgba(22,38,63,0.25)] hover:-translate-y-1 transition-all duration-300"
+                  className="group relative block h-full bg-white rounded-3xl border border-line p-8 overflow-hidden hover:shadow-[0_24px_60px_-20px_rgba(22,38,63,0.3)] hover:-translate-y-1.5 transition-all duration-300"
                 >
-                  <span className="w-[52px] h-[52px] rounded-2xl bg-primary flex items-center justify-center mb-6 group-hover:bg-primary-light transition-colors">
-                    <resource.icon className="w-6 h-6 text-gold-light" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="w-[56px] h-[56px] rounded-2xl bg-gradient-to-br from-primary to-primary-deep border border-gold/20 flex items-center justify-center mb-6 group-hover:from-primary-light group-hover:to-primary transition-colors shadow-[0_10px_24px_-10px_rgba(22,38,63,0.5)]">
+                    <resource.icon className="w-6 h-6 text-gold" />
                   </span>
                   <h3 className="text-xl font-semibold mb-2.5">{resource.title}</h3>
                   <p className="text-muted text-[15px] leading-relaxed mb-5">{resource.description}</p>
@@ -141,16 +150,21 @@ export default function Resources() {
 
       {/* Newsletter */}
       <section className="relative overflow-hidden bg-primary-deep">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_120%_at_50%_100%,#243b63_0%,#0c1729_70%)]" />
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
+        <div className="absolute inset-0 hero-navy" />
+        <div className="absolute inset-0 texture-dots opacity-60" />
+        <div className="absolute top-0 left-0 right-0 gold-rule-top" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
           <Reveal>
-            <span className="w-14 h-14 rounded-2xl bg-gold/15 border border-gold/25 flex items-center justify-center mx-auto mb-6">
-              <BellRing className="w-7 h-7 text-gold-light" />
+            <span className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-light to-gold-dark border border-gold/40 flex items-center justify-center mx-auto mb-7 shadow-[0_16px_40px_-12px_rgba(193,154,61,0.6)]">
+              <BellRing className="w-7 h-7 text-primary-deep" />
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-4">
-              Tax tips in your inbox
+            <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-5 tracking-tight">
+              Tax tips in{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold italic">
+                your inbox
+              </span>
             </h2>
-            <p className="text-lg text-white/65 mb-9">
+            <p className="text-lg sm:text-xl text-white/65 mb-10">
               Deadlines, deduction reminders, and plain-English tax news. No spam, ever.
             </p>
             {subscribed ? (
