@@ -1,6 +1,6 @@
-import { BookOpen, CheckCircle, Upload, Mail, ArrowRight, Star } from "lucide-react";
+import { BookOpen, CheckCircle, Mail, ArrowRight, Star, ShieldCheck } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import { Card, CardContent } from "../components/ui/Card";
+import { Card } from "../components/ui/Card";
 import { Reveal } from "../components/ui/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
 
@@ -20,9 +20,10 @@ const tiers = [
     per: "/month",
     tagline: "For small businesses getting organized.",
     features: [
-      "1 bank account, 1 card",
-      "About 75 transactions a month",
-      "Monthly reconciliation and report",
+      "1 bank account + 1 card",
+      "Up to ~75 transactions / month",
+      "Monthly reconciliation",
+      "Simple monthly report",
     ],
     popular: false,
   },
@@ -33,7 +34,7 @@ const tiers = [
     tagline: "Our most popular plan for growing businesses.",
     features: [
       "Up to 3 accounts",
-      "About 200 transactions a month",
+      "Up to ~200 transactions / month",
       "Receipt management",
       "Automatic invoice reminders",
       "15-minute monthly review call",
@@ -50,6 +51,7 @@ const tiers = [
       "Per-job cost tracking",
       "Bill pay coordination",
       "Cash flow snapshot",
+      "Priority support",
     ],
     popular: false,
   },
@@ -57,22 +59,22 @@ const tiers = [
 
 const steps = [
   {
-    step: "1",
+    step: "01",
     title: "Send your statements",
     description:
-      "Upload your bank and card statements and receipts through our secure upload link.",
+      "Email us to get set up in QuickBooks Online, then share statements and receipts through your secure upload link.",
   },
   {
-    step: "2",
+    step: "02",
     title: "We clean up your books",
     description:
-      "Every transaction is categorized, your accounts are reconciled, and your receipts are organized.",
+      "Every transaction categorized, every account reconciled, every receipt organized. Done for you.",
   },
   {
-    step: "3",
+    step: "03",
     title: "You get a simple report",
     description:
-      "A clear monthly report shows what you made, what you spent, and where your business stands.",
+      "A clear monthly report shows what you made, what you spent, and exactly where your business stands.",
   },
 ];
 
@@ -80,176 +82,153 @@ export default function Bookkeeping() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-primary py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center bg-gold/15 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-gold/25">
-            <BookOpen className="w-4 h-4 mr-2" />
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_0%,#eef1f7_0%,#ffffff_70%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 text-center">
+          <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-7 animate-hero">
+            <BookOpen className="w-4 h-4 text-gold-dark" />
             Bookkeeping by Lexis Sapphire Financial
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Monthly Bookkeeping, Done for You, by{" "}
-            <span className="text-gold">Lexis Sapphire Financial</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 animate-hero">
+            Clean books, <span className="text-gold-dark">every month.</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
-            I keep your books clean every month, so you always know what you
-            made, and tax time is a folder, not a shoebox.
+          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-4 animate-hero" style={{ animationDelay: "100ms" }}>
+            “I keep your books clean every month, so you always know what you
+            made — and tax time is a folder, not a shoebox.”
           </p>
-          <p className="text-sm text-gray-400">
-            Bookkeeping by Lexis Sapphire Financial, a partner of Jackson Tax
-            Service.
+          <p className="text-sm text-faint animate-hero" style={{ animationDelay: "140ms" }}>
+            — Risha Smith, Lexis Sapphire Financial · Partner of Jackson Tax Service
           </p>
         </div>
       </section>
 
-      {/* Pricing Tiers */}
-      <section className="py-20 bg-white">
+      {/* Pricing */}
+      <section className="py-16 lg:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="Monthly Plans"
-              title="Choose the plan that fits your business"
-              subtitle="Clean books every month, in QuickBooks Online, with a simple report you can actually understand."
+              eyebrow="Monthly plans"
+              title="Pick the plan that fits"
+              subtitle="Every plan includes QuickBooks Online, monthly reconciliation, and a report you can actually understand."
             />
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
             {tiers.map((tier, i) => (
               <Reveal key={tier.name} delay={i * 90} className="h-full">
                 <Card
-                  className={`relative h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
-                    tier.popular ? "border-2 border-gold" : ""
+                  className={`relative h-full p-8 flex flex-col ${
+                    tier.popular
+                      ? "border-2 !border-gold shadow-[0_24px_60px_-24px_rgba(193,154,61,0.45)]"
+                      : "hover:shadow-[0_20px_50px_-20px_rgba(22,38,63,0.25)] hover:-translate-y-1 transition-all duration-300"
                   }`}
                 >
                   {tier.popular && (
-                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center bg-gold text-primary text-sm font-semibold px-4 py-1.5 rounded-full">
-                      <Star className="w-4 h-4 mr-1 fill-current" />
-                      Most Popular
+                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-gold text-primary-deep text-xs font-bold uppercase tracking-[0.12em] px-4 py-1.5 rounded-full whitespace-nowrap">
+                      <Star className="w-3.5 h-3.5 fill-current" />
+                      Most popular
                     </span>
                   )}
-                  <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold text-primary mb-1">
-                      {tier.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-6">{tier.tagline}</p>
-                    <p className="mb-6">
-                      <span className="text-5xl font-bold text-primary">
-                        {tier.price}
-                      </span>
-                      <span className="text-gray-500 font-medium">
-                        {tier.per}
-                      </span>
-                    </p>
-                    <ul className="space-y-3 mb-8">
-                      {tier.features.map((feature) => (
-                        <li key={feature} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-gold mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <a href={`mailto:${BOOKKEEPING_EMAIL}?subject=Bookkeeping - ${tier.name} plan`}>
-                      <Button
-                        variant={tier.popular ? "gold" : "outline"}
-                        size="lg"
-                        className="w-full"
-                      >
-                        Choose {tier.name}
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Button>
-                    </a>
-                  </CardContent>
+                  <h3 className="text-xl font-semibold mb-1">{tier.name}</h3>
+                  <p className="text-muted text-sm mb-6">{tier.tagline}</p>
+                  <p className="mb-7">
+                    <span className="text-5xl font-semibold font-display text-primary">{tier.price}</span>
+                    <span className="text-muted font-medium">{tier.per}</span>
+                  </p>
+                  <ul className="space-y-3.5 mb-8">
+                    {tier.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-gold-dark flex-shrink-0 mt-0.5" />
+                        <span className="text-ink/85 text-[15px]">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`mailto:${BOOKKEEPING_EMAIL}?subject=${encodeURIComponent(`Bookkeeping — ${tier.name} plan`)}`}
+                    className="mt-auto"
+                  >
+                    <Button variant={tier.popular ? "gold" : "outline"} size="lg" className="w-full">
+                      Choose {tier.name}
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </a>
                 </Card>
               </Reveal>
             ))}
           </div>
 
-          {/* Cleanup note */}
-          <Reveal className="mt-12">
-            <div className="bg-surface rounded-2xl p-8 text-center max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold text-primary mb-3">
-                Behind on your books?
-              </h3>
-              <p className="text-lg text-gray-600">
-                One-time cleanup $500 to $1,500 before your monthly plan
-                starts, depending on how many months behind you are.
+          <Reveal className="mt-10">
+            <div className="max-w-3xl mx-auto bg-white border border-line rounded-3xl p-8 text-center">
+              <h3 className="text-xl font-semibold mb-2">Behind on your books?</h3>
+              <p className="text-muted">
+                One-time cleanup from <span className="font-bold text-primary">$500–$1,500</span> before
+                your monthly plan starts, depending on how far behind you are.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 bg-surface">
+      {/* How it works */}
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="How It Works"
-              title="Getting started is simple"
-              subtitle="Three steps, and your books are off your plate."
+              eyebrow="How it works"
+              title="Off your plate in three steps"
+              subtitle="No accounting degree required. If you can email, you can do this."
             />
           </Reveal>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {steps.map((item, i) => (
               <Reveal key={item.step} delay={i * 100} className="h-full">
-                <Card className="text-center h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-gold font-bold text-xl font-display">
-                        {item.step}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-primary mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
-                  </CardContent>
-                </Card>
+                <div className="h-full bg-surface rounded-3xl p-8">
+                  <p className="font-display text-6xl font-semibold text-gold/25 mb-5">{item.step}</p>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-muted leading-relaxed">{item.description}</p>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Exclusions + CTA */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-light">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Trust + CTA */}
+      <section className="relative overflow-hidden bg-primary-deep">
+        <div className="absolute inset-0 bg-[radial-gradient(80%_120%_at_50%_100%,#243b63_0%,#0c1729_70%)]" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-gold-light px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <ShieldCheck className="w-4 h-4" />
+              No tax filing · No payroll · Just clean books
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-5">
               Ready to hand off your books?
             </h2>
-            <p className="text-xl text-gray-300 mb-2 max-w-2xl mx-auto">
-              No tax filing, no payroll. Just clean books you can trust, every
-              month.
+            <p className="text-lg text-white/65 mb-9 max-w-xl mx-auto">
+              Email us to get set up in QuickBooks. We'll send your secure
+              upload link and take it from there.
             </p>
-            <p className="text-gray-400 mb-8">
-              At year end, you get a clean package ready for your tax
-              preparer.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3.5">
               <a
-                href={`mailto:${BOOKKEEPING_EMAIL}?subject=QuickBooks%20onboarding%20for%20monthly%20bookkeeping`}
+                href={`mailto:${BOOKKEEPING_EMAIL}?subject=${encodeURIComponent("QuickBooks onboarding for monthly bookkeeping")}`}
               >
                 <Button variant="gold" size="lg">
-                  <Upload className="w-5 h-5 mr-2" />
                   Get set up in QuickBooks
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
               <a href={`mailto:${BOOKKEEPING_EMAIL}`}>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-primary"
+                  className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:border-white/40"
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   {BOOKKEEPING_EMAIL}
                 </Button>
               </a>
             </div>
-            <p className="text-gray-400 text-sm mt-6">
-              We onboard every bookkeeping client in QuickBooks. Email us
-              to get started and we will send your secure upload link.
-            </p>
           </Reveal>
         </div>
       </section>

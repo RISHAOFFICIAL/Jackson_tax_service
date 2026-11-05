@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1a2a4a;
-  --color-primary-light: #2a3f6a;
-  --color-primary-deep: #0f1d38;
-  --color-gold: #c9a84c;
-  --color-gold-light: #d4b96a;
-  --color-gold-dark: #a88a2e;
-  --color-accent: #e8b84b;
-  --color-surface: #f8f6f0;
-  --color-muted: #6b7280;
+  /* Refined brand palette: deep navy + restrained gold */
+  --color-primary: #16263f;
+  --color-primary-light: #243b63;
+  --color-primary-deep: #0c1729;
+  --color-gold: #c19a3d;
+  --color-gold-light: #d8bc6e;
+  --color-gold-dark: #96742a;
+  --color-ink: #1a2332;
+  --color-muted: #5b6472;
+  --color-faint: #8a93a3;
+  --color-surface: #f7f8fa;
+  --color-line: #e8eaef;
 
-  /* Distinctive typography pairing: Fraunces (display serif) + Inter (body sans) */
+  /* Typography: Fraunces (display serif) + Inter (body sans) */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
   --font-display: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
@@ -24,6 +27,8 @@
 
   body {
     font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: #ffffff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -35,35 +40,36 @@
   h5,
   h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    color: var(--color-primary);
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: #fff;
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f2f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9a84c;
-  border-radius: 4px;
+  background: #c8cdd6;
+  border-radius: 8px;
 }
-
-/* Gradient text utility */
-.gradient-gold {
-  background: linear-gradient(135deg, #c9a84c, #e8b84b);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
 }
 
 /* ---------- Motion & interaction ---------- */
 @keyframes hero-fade-up {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -71,39 +77,14 @@
   }
 }
 
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-16px);
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .animate-hero {
-  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-float {
-  animation: float-slow 9s ease-in-out infinite;
-}
-.animate-spin-slow {
-  animation: spin-slow 48s linear infinite;
+  animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Scroll-reveal (driven by the <Reveal /> component) */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -117,9 +98,7 @@
 /* Honor reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .animate-hero,
-  .animate-float,
-  .animate-spin-slow {
+  .animate-hero {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;

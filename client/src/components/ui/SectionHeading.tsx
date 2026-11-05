@@ -1,5 +1,4 @@
 import { cn } from "../../lib/utils";
-import { Swash } from "./Swash";
 
 interface SectionHeadingProps {
   eyebrow: string;
@@ -12,8 +11,8 @@ interface SectionHeadingProps {
 }
 
 /**
- * Reusable section header: small-caps eyebrow flanked by gold rules, a serif
- * display title, and the signature swash motif underneath.
+ * Clean section header: small-caps gold eyebrow, serif display title,
+ * and an optional subtitle. No decorative motifs — whitespace does the work.
  */
 export function SectionHeading({
   eyebrow,
@@ -25,30 +24,25 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const center = align === "center";
   return (
-    <div className={cn("mb-14 max-w-2xl", center && "mx-auto text-center", className)}>
-      <div className={cn("flex items-center gap-3", center && "justify-center")}>
-        <span className={cn("h-px w-8 bg-gold/70")} />
-        <span
-          className={cn(
-            "text-sm font-semibold uppercase tracking-[0.22em]",
-            light ? "text-gold" : "text-gold-dark"
-          )}
-        >
-          {eyebrow}
-        </span>
-        <span className={cn("h-px w-8 bg-gold/70")} />
-      </div>
+    <div className={cn("mb-12 max-w-2xl lg:mb-16", center && "mx-auto text-center", className)}>
+      <p
+        className={cn(
+          "text-xs font-bold uppercase tracking-[0.24em]",
+          light ? "text-gold-light" : "text-gold-dark"
+        )}
+      >
+        {eyebrow}
+      </p>
       <h2
         className={cn(
-          "mt-4 text-3xl font-bold sm:text-4xl",
+          "mt-4 text-3xl font-semibold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]",
           light ? "text-white" : "text-primary"
         )}
       >
         {title}
       </h2>
-      <Swash className={cn("mt-4 h-3.5 w-32", center && "mx-auto")} />
       {subtitle && (
-        <p className={cn("mt-5 text-lg", light ? "text-gray-300" : "text-gray-600")}>
+        <p className={cn("mt-5 text-lg leading-relaxed", light ? "text-white/70" : "text-muted")}>
           {subtitle}
         </p>
       )}
